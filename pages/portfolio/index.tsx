@@ -10,8 +10,8 @@ const IndexPage = () => (
       <Container>
         <Padding>
           <Grid>
-            {portData.map((data) => {
-              return <Card {...data} />;
+            {portData.map((data, index) => {
+              return <Card {...data} key={index} />;
             })}
           </Grid>
         </Padding>

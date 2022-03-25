@@ -16,7 +16,9 @@ export default function FormItem({ label, type, options }: ItemProps) {
             select: (
               <Select>
                 {options?.map(({ text, id }) => (
-                  <option value={id}>{text}</option>
+                  <option value={id} key={id}>
+                    {text}
+                  </option>
                 ))}
               </Select>
             ),
