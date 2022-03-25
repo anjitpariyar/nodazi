@@ -12,3 +12,7 @@ export const Container = styled.div`
   max-width: 1101px;
   margin: 0 auto;
 `;
+
+export const Padding = styled.div`
+  padding-block: 140px 170px;
+`;

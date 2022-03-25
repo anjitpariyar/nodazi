@@ -15,12 +15,12 @@ export default function () {
             </Link>
           </Item>
           <Item>
-            <Link href="/">
+            <Link href="/portfolio">
               <a>WORK</a>
             </Link>
           </Item>
           <Item>
-            <Link href="/">
+            <Link href="/contact">
               <a>CONTACT</a>
             </Link>
           </Item>
