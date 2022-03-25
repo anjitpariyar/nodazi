@@ -6,7 +6,20 @@ export default function Form(params) {
       <form>
         <Grid>
           <Div>
-            <FormItem />
+            <FormItem label="이름" type="text" />
+            <FormItem label="회사명" type="text" />
+            <FormItem label="이메일" type="text" />
+            <FormItem label="연락처" type="text" />
+            <FormItem
+              label="의뢰분야"
+              type="select"
+              options={[
+                { text: "one", id: 1 },
+                { text: "two", id: 2 },
+                { text: "three", id: 3 },
+              ]}
+            />
+            <FormItem label="예상날짜" type="text" />
           </Div>
         </Grid>
       </form>
