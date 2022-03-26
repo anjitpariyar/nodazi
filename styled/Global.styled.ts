@@ -11,6 +11,7 @@ body{
     font-weight: 400;
     background-color: #000;
     color: #FFFFFF;
+    position: relative;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
