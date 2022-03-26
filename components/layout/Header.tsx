@@ -4,7 +4,7 @@ import { Container } from "styled/Common.styled";
 import Link from "next/link";
 import Star from "public/icons/Star";
 
-export default function () {
+export default function Header() {
   return (
     <HeaderWrap>
       <Container>
@@ -28,12 +28,12 @@ export default function () {
             <Star />
           </StarWrap>
           <Item>
-            <a href="ig" target="_blank">
+            <a href="ig" target="_blank" rel="noreferrer">
               INSTAGRAM
             </a>
           </Item>
           <Item>
-            <a href="ig" target="_blank">
+            <a href="ig" target="_blank" rel="noreferrer">
               BEHANCE
             </a>
           </Item>

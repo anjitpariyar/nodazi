@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function () {
+export default function Bottom() {
   return (
     <Footer>
       <Grid>
@@ -28,12 +28,12 @@ export default function () {
         <div>
           <Title>SNS</Title>
           <Text>
-            <a href="ig" target="_blank">
+            <a href="ig" target="_blank" rel="noreferrer">
               instagram
             </a>
           </Text>
           <Text>
-            <a href="http://" target="_blank">
+            <a href="http://" target="_blank" rel="noreferrer">
               Behance
             </a>
           </Text>

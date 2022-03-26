@@ -3,7 +3,7 @@ import { Container, Padding } from "styled/Common.styled";
 import Layout from "components/layout/Layout";
 import styled from "styled-components";
 import { Details } from "components/pages/portfolio";
-export default function () {
+export default function Pid() {
   const router = useRouter();
   const { pid } = router.query;
 

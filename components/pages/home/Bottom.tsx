@@ -3,9 +3,9 @@ import { Container } from "styled/Common.styled";
 import Link from "next/link";
 import Logo from "public/icons/Logo";
 
-export default function () {
+export default function Footer() {
   return (
-    <Footer>
+    <FooterWrapper>
       <Container>
         <Flex>
           <Brand>
@@ -36,23 +36,23 @@ export default function () {
           <div>
             <Title>SNS</Title>
             <Text>
-              <a href="ig" target="_blank">
+              <a href="ig" target="_blank" rel="noreferrer">
                 instagram
               </a>
             </Text>
             <Text>
-              <a href="http://" target="_blank">
+              <a href="http://" target="_blank" rel="noreferrer">
                 Behance
               </a>
             </Text>
           </div>
         </Flex>
       </Container>
-    </Footer>
+    </FooterWrapper>
   );
 }
 
-const Footer = styled.footer`
+const FooterWrapper = styled.footer`
   padding: 71px 0;
   padding-bottom: 122px;
   font-size: 20px;

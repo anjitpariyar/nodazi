@@ -4,7 +4,7 @@ import image3 from "public/image/Ellipse3.png";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function () {
+export default function Footer() {
   return (
     <FooterWrap>
       <Link href="/contact">

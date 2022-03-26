@@ -40,8 +40,8 @@ export default function Details() {
             <Para>
               VISION DRIVE with 2021 Hyundai Motor Company is an educational
               program for elementary school students and designed characters
-              that arouse interest at the children's level and applied them to
-              programbooks, activity cards, PPT, and WEB.
+              that arouse interest at the children&apos;s level and applied them
+              to programbooks, activity cards, PPT, and WEB.
             </Para>
           </div>
         </Flex>

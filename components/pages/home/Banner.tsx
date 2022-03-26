@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import bannerImage from "public/image/home_banner.png";
-// @ts-ignore
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
 

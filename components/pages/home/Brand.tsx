@@ -7,7 +7,7 @@ import { keyframes } from "styled-components";
 import Image from "next/image";
 import image1 from "public/image/Ellipse1.png";
 import { useState } from "react";
-export default function () {
+export default function Brand() {
   return (
     <Section>
       <Container>

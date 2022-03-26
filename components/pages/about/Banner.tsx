@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Container } from "styled/Common.styled";
-export default function () {
+export default function Banner() {
   return (
     <Section>
       <Container>

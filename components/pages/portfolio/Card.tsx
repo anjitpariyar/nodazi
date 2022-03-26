@@ -3,9 +3,9 @@ import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ({ id, img }) {
+export default function Card({ id, img }) {
   return (
-    <Card>
+    <CardWrap>
       <Link href={`/portfolio/${id}`}>
         <a>
           <ImageWrapper>
@@ -20,11 +20,11 @@ export default function ({ id, img }) {
           </ImageWrapper>
         </a>
       </Link>
-    </Card>
+    </CardWrap>
   );
 }
 
-const Card = styled.div``;
+const CardWrap = styled.div``;
 const ImageWrapper = styled.div`
   position: relative;
   height: 340px;
