@@ -2,14 +2,15 @@
 import Layout from "components/layout/Layout";
 import styled from "styled-components";
 import { Container, Padding } from "styled/Common.styled";
-import { Form } from "components/pages/contact";
+import { Form, Bottom } from "components/pages/contact";
 
 const IndexPage = () => (
   <Layout title="NODAZI | Contact">
     <Section>
       <Container>
         <Padding>
-          <Form></Form>
+          <Form />
+          <Bottom />
         </Padding>
       </Container>
     </Section>

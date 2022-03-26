@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import { Container } from "styled/Common.styled";
-import Link from "next/link";
-import Logo from "public/icons/Logo";
 
 export default function () {
   return (
