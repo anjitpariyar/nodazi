@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import image3 from "public/image/Ellipse3.png";
-import Image from "next/Image";
+import Image from "next/image";
 import Link from "next/Link";
 
 export default function () {
