@@ -188,5 +188,5 @@ const roateAnimation = keyframes`
 
 const Rotation = styled.g`
   transform-origin: 196px 186px;
-  animation: ${roateAnimation} 10s linear 0s infinite;
+  animation: ${roateAnimation} 15s linear 0s infinite;
 `;

@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import image3 from "public/image/Ellipse3.png";
-import Image from "next/Image";
-import Link from "next/Link";
+import Link from "next/link";
 import Circle from "public/icons/Circle";
 export default function () {
   return (
