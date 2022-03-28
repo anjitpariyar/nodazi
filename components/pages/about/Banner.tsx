@@ -11,10 +11,26 @@ export default function () {
   const circle = useRef(null);
   const t1 = gsap.timeline();
   const MouseMove = (e) => {
-    console.log(e.clientX, e.clientY);
+    if (circle?.current) {
+      t1.to(circle.current, {
+        x: e.clientX,
+        y: e.clientY,
+        scale: 1,
+        duration: 0.01,
+        ease: "linear",
+      });
+    }
+  };
+  const MouseRemove = () => {
+    if (circle?.current) {
+      t1.to(circle.current, {
+        scale: 0,
+        origin: "-50% 0%",
+      });
+    }
   };
   return (
-    <Section onMouseMove={MouseMove}>
+    <Section onMouseMove={MouseMove} onMouseLeave={MouseRemove}>
       <Container>
         <Relative>
           <Title>
@@ -69,6 +85,21 @@ collaboration with our customers.`}
     </Section>
   );
 }
+
+const Circle = styled.div`
+  position: fixed;
+  height: 150px;
+  width: 150px;
+  background-color: ${({ theme }) => theme.white};
+  left: -75px;
+  top: -75px;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  z-index: 999;
+  pointer-events: none;
+  transition: 0.2s linear;
+  transform: scale(0);
+`;
 
 const Section = styled.section`
   padding-block: 140px 0px;
@@ -157,15 +188,4 @@ const ImageWrapper2 = styled(ImageWrapper)`
   bottom: -20px;
   width: 488.55px;
   height: 131.88px;
-`;
-
-const Circle = styled.div`
-  position: absolute;
-  height: 130px;
-  width: 130px;
-  background-color: #fff;
-  left: 0;
-  top: 0;
-  border-radius: 50%;
-  mix-blend-mode: difference;
 `;
