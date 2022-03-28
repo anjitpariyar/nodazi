@@ -1,7 +1,6 @@
 // import Link from "next/link";
 import Layout from "components/layout/Layout";
 import { Banner, Brand, Bottom } from "components/pages/home";
-
 const IndexPage = () => (
   <Layout title="NODAZI | Main">
     <Banner />
