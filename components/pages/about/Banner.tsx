@@ -182,10 +182,14 @@ const ImageWrapper1 = styled(ImageWrapper)`
   right: auto;
   width: 246.27px;
   height: 179.18px;
+  animation-delay: 0.2s;
+  animation-duration: 4s;
 `;
 const ImageWrapper2 = styled(ImageWrapper)`
   top: auto;
   bottom: -20px;
   width: 488.55px;
   height: 131.88px;
+  animation-delay: 0.3s;
+  animation-duration: 6s;
 `;
