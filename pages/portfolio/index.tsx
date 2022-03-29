@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Container, Padding } from "styled/Common.styled";
 import { portData } from "utils/sample-data";
 import { Card } from "components/pages/portfolio";
+import { device } from "styled/Breakpoint";
 const IndexPage = () => (
   <Layout title="NODAZI | Portfolio">
     <Section>
@@ -30,4 +31,8 @@ const Grid = styled.div`
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(2, 1fr);
+  @media ${device.mobileL} {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 7px;
+  }
 `;

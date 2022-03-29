@@ -5,6 +5,7 @@ import Cube from "public/icons/Cube";
 import image1 from "public/image/portfolio/Rectangle23.png";
 import image2 from "public/image/portfolio/Rectangle25.png";
 import image3 from "public/image/portfolio/Rectangle25.png";
+import { device } from "styled/Breakpoint";
 
 export default function Details() {
   return (
@@ -85,11 +86,18 @@ export default function Details() {
 const Section = styled.section`
   position: relative;
   font-size: 20px;
+  @media ${device.mobileL} {
+    font-size: 14px;
+  }
 `;
 
 const Flex = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  @media ${device.mobileL} {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2em;
+  }
 `;
 
 const Div = styled.div`
@@ -127,4 +135,7 @@ const ImageWrapper = styled.div`
   position: relative;
   height: 500px;
   transition: 0.3s linear;
+  @media ${device.mobileL} {
+    height: 340px;
+  }
 `;

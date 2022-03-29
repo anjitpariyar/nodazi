@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "./Breakpoint";
 
 export const CommonLink = styled.div`
   a {
@@ -15,4 +16,7 @@ export const Container = styled.div`
 
 export const Padding = styled.div`
   padding-block: 140px 170px;
+  @media ${device.mobileL} {
+    padding-block: 40px 70px;
+  }
 `;
