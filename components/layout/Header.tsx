@@ -1,15 +1,35 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { Container } from "styled/Common.styled";
 import Link from "next/link";
 import Star from "public/icons/Star";
+import Cross from "public/icons/Cross";
 import { device } from "styled/Breakpoint";
+import { gsap } from "gsap";
 
 export default function Header() {
+  const SideMenu = useRef(null);
+  const t1 = gsap.timeline();
+  const open = () => {
+    document.querySelector("html").style.overflow = "hidden";
+    t1.to(SideMenu?.current, {
+      x: "-100%",
+      duration: 0.6,
+      ease: "ease-in",
+    });
+  };
+  const close = () => {
+    document.querySelector("html").style.overflow = "auto";
+    t1.to(SideMenu?.current, {
+      x: "0%",
+      duration: 0.6,
+      ease: "ease-in",
+    });
+  };
   return (
     <HeaderWrap>
       <Container>
-        <Nav>
+        <Nav ref={SideMenu}>
           <Item>
             <Link href="/about">
               <a>ABOUT</a>
@@ -42,8 +62,14 @@ export default function Header() {
               BEHANCE
             </a>
           </Item>
+          <Hamburger onClick={close} cross={true}>
+            <Cross />
+          </Hamburger>
         </Nav>
         {/* responsive from tablet*/}
+        <Hamburger onClick={open}>
+          <Star />
+        </Hamburger>
       </Container>
     </HeaderWrap>
   );
@@ -78,6 +104,8 @@ const Nav = styled.nav`
     height: 100vh;
     align-items: flex-start;
     justify-content: flex-start;
+    box-sizing: border-box;
+    z-index: 100;
   }
 `;
 const Item = styled.li`
@@ -121,5 +149,22 @@ const StarWrap = styled.div`
     @media ${device.tablet} {
       display: none;
     }
+  }
+`;
+
+const Hamburger = styled.div<{ cross }>`
+  padding: 10px 17px;
+  position: ${({ cross }) => (cross ? "absolute" : "fixed")};
+  top: 0;
+  right: 0;
+  z-index: 99;
+  display: none;
+  cursor: pointer;
+  @media ${device.tablet} {
+    display: inline-block;
+  }
+  svg {
+    height: 33px;
+    width: auto;
   }
 `;

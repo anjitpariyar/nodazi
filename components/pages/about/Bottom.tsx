@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Container } from "styled/Common.styled";
-
+import { device } from "styled/Breakpoint";
 export default function Bottom() {
   return (
     <Footer>
@@ -61,6 +61,11 @@ const Footer = styled.footer`
   padding-block: 140px 174px;
   padding-bottom: 122px;
   font-size: 20px;
+  @media ${device.mobileL} {
+    padding-top: 10px;
+    padding-bottom: 70px;
+    font-size: 16px;
+  }
 `;
 const Grid = styled.div`
   display: grid;
@@ -68,18 +73,31 @@ const Grid = styled.div`
   flex-wrap: wrap;
   grid-template-columns: repeat(4, minmax(100px, auto));
   gap: 92px 62px;
+  @media ${device.tablet} {
+    grid-template-columns: repeat(3, minmax(100px, auto));
+  }
+  @media ${device.mobileL} {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 34px;
+  }
 `;
 
 const Title = styled.h2`
   margin-top: 0;
   font-size: 1.4em;
   margin-bottom: 0.8em;
+  @media ${device.mobileL} {
+    font-size: 1em;
+  }
 `;
 
 const Text = styled.p`
   margin-top: 0;
   font-size: 1.3em;
   margin-bottom: 0.6em;
+  @media ${device.mobileL} {
+    font-size: 13px;
+  }
   a {
     color: currentColor;
     text-decoration: none;

@@ -6,6 +6,7 @@ import Image from "next/image";
 import float1 from "public/image/float/Maskgroup-1.png";
 import float2 from "public/image/float/Vector.png";
 import float3 from "public/image/float/Maskgroup.png";
+import { device } from "styled/Breakpoint";
 
 export default function Banner() {
   const circle = useRef(null);
@@ -106,6 +107,9 @@ const Section = styled.section`
   font-size: 28px;
   font-weight: 300;
   position: relative;
+  @media ${device.tablet} {
+    padding: 48px 0;
+  }
 `;
 const Title = styled.h2`
   white-space: pre;
@@ -115,6 +119,12 @@ const Title = styled.h2`
   position: relative;
   z-index: 2;
 
+  @media ${device.laptop} {
+    white-space: normal;
+  }
+  @media ${device.mobileL} {
+    font-size: 18px;
+  }
   b {
     font-weight: 600;
   }
@@ -125,6 +135,12 @@ const Text = styled.p`
   line-height: 1.8;
   position: relative;
   z-index: 2;
+  @media ${device.laptop} {
+    white-space: normal;
+  }
+  @media ${device.mobileL} {
+    font-size: 18px;
+  }
 
   b {
     font-weight: 600;
@@ -136,6 +152,9 @@ const Hr = styled.hr`
   border: 0;
   height: 1px;
   background-color: ${({ theme }) => theme.white};
+  @media ${device.mobileL} {
+    margin-top: 40px;
+  }
 `;
 
 const Relative = styled.div`
@@ -174,6 +193,10 @@ const ImageWrapper = styled.div`
   height: 200px;
   z-index: 0;
   animation: ${Float} 5s linear 0s infinite;
+  @media ${device.mobileL} {
+    height: 100px;
+    width: 150px;
+  }
 `;
 
 const ImageWrapper1 = styled(ImageWrapper)`
@@ -184,6 +207,12 @@ const ImageWrapper1 = styled(ImageWrapper)`
   height: 179.18px;
   animation-delay: 0.2s;
   animation-duration: 4s;
+  @media ${device.mobileL} {
+    width: 125px;
+    height: 90px;
+    top: 280px;
+    left: 0px;
+  }
 `;
 const ImageWrapper2 = styled(ImageWrapper)`
   top: auto;
@@ -192,4 +221,8 @@ const ImageWrapper2 = styled(ImageWrapper)`
   height: 131.88px;
   animation-delay: 0.3s;
   animation-duration: 6s;
+  @media ${device.mobileL} {
+    width: 225px;
+    height: 90px;
+  }
 `;
