@@ -26,7 +26,11 @@ export default function Header() {
             </Link>
           </Item>
           <StarWrap>
-            <Star />
+            <Link href="/">
+              <a>
+                <Star />
+              </a>
+            </Link>
           </StarWrap>
           <Item>
             <a href="ig" target="_blank" rel="noreferrer">
