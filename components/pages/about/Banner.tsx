@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { useRef } from "react";
 import Image from "next/image";
 import float1 from "public/image/float/Maskgroup-1.png";
-import float2 from "public/image/float/vector.png";
+import float2 from "public/image/float/Vector.png";
 import float3 from "public/image/float/Maskgroup.png";
 
 export default function Banner() {
