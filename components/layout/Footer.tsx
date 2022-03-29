@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Circle from "public/icons/Circle";
+import { device } from "styled/Breakpoint";
 export default function Footer() {
   return (
     <FooterWrap>
@@ -19,6 +20,9 @@ const FooterWrap = styled.footer`
   right: 43px;
   bottom: 50px;
   z-index: 2;
+  @media ${device.mobileL} {
+    display: none;
+  }
   a {
     display: block;
     svg circle {

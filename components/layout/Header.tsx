@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Container } from "styled/Common.styled";
 import Link from "next/link";
 import Star from "public/icons/Star";
+import { device } from "styled/Breakpoint";
 
 export default function Header() {
   return (
@@ -38,6 +39,7 @@ export default function Header() {
             </a>
           </Item>
         </Nav>
+        {/* responsive from tablet*/}
       </Container>
     </HeaderWrap>
   );
@@ -51,6 +53,9 @@ const HeaderWrap = styled.header`
   z-index: 999;
   width: 100%;
   left: 0;
+  @media ${device.tablet} {
+    font-size: 28px;
+  }
 `;
 
 const Nav = styled.nav`
@@ -58,6 +63,18 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   gap: 1em;
+  @media ${device.tablet} {
+    flex-direction: column;
+    width: 100%;
+    background-color: #000;
+    position: fixed;
+    left: 100%;
+    top: 0;
+    padding: 44px 17px;
+    height: 100vh;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 `;
 const Item = styled.li`
   display: inline-block;
@@ -77,6 +94,11 @@ const StarWrap = styled.div`
   gap: 1.3em;
   align-items: center;
   padding: 0 1em;
+  @media ${device.tablet} {
+    flex-grow: 0;
+    gap: 0;
+    padding: 1em 0;
+  }
   &:before,
   &:after {
     content: "";
@@ -84,10 +106,16 @@ const StarWrap = styled.div`
     width: 100%;
     flex-grow: 2;
     background-color: #ffffff;
+    @media ${device.tablet} {
+      width: 25px;
+    }
   }
   svg {
     height: auto;
     width: 45px;
     min-width: 45px;
+    @media ${device.tablet} {
+      display: none;
+    }
   }
 `;

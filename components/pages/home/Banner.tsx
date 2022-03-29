@@ -2,6 +2,7 @@ import styled from "styled-components";
 import bannerImage from "public/image/home_banner.png";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
+import { device } from "styled/Breakpoint";
 
 export default function Banner() {
   return (
@@ -36,12 +37,19 @@ const ImageWrapper = styled.div`
   width: 100%;
   height: 1420px;
   max-width: 100%;
+  @media ${device.mobileL} {
+    height: 416px;
+  }
 `;
 const TextWrap = styled.div`
   position: absolute;
   bottom: 71px;
   left: 0;
   width: 100%;
+  @media ${device.mobileL} {
+    display: none;
+  }
+
   /* .marquee {
     gap: 90px;
   } */
@@ -51,6 +59,9 @@ const TextWrap = styled.div`
       background: #545454;
       mix-blend-mode: darken;
       width: 300px;
+      @media ${device.tablet} {
+        width: 150px;
+      }
     }
   }
 `;

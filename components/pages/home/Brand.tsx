@@ -6,7 +6,8 @@ import Oval from "public/icons/Oval";
 import { keyframes } from "styled-components";
 import Image from "next/image";
 import image1 from "public/image/Ellipse1.png";
-import { useState } from "react";
+import { device } from "styled/Breakpoint";
+
 export default function Brand() {
   return (
     <Section>
@@ -52,6 +53,9 @@ export default function Brand() {
 const Section = styled.section`
   font-size: 1rem;
   padding: 71px 0;
+  @media ${device.tablet} {
+    text-align: center;
+  }
 `;
 const Upper = styled.article`
   display: flex;
@@ -66,9 +70,17 @@ const Title = styled.h2`
   white-space: pre-line;
   line-height: 1.4;
   position: relative;
+  @media ${device.mobileL} {
+    font-size: 28px;
+    line-height: 40px;
+    width: 100%;
+  }
   span {
     transition: 0.4s ease-in;
     transition-delay: 0.15s;
+    @media ${device.tablet} {
+      color: ${({ theme }) => theme.white};
+    }
 
     &:first-child {
       transition-delay: 0s;
@@ -86,6 +98,14 @@ const Path = styled.span`
   left: -10px;
   width: 345px;
   overflow: hidden;
+  @media ${device.tablet} {
+    left: 100px;
+  }
+  @media ${device.mobileL} {
+    left: 35px;
+    top: -17px;
+    width: 180px;
+  }
 `;
 const ovalAnimation = keyframes`
  0% { stroke-dasharray: 723;
@@ -109,6 +129,9 @@ const Button = styled.button`
   width: 232px;
   height: 110px;
   position: relative;
+  @media ${device.tablet} {
+    display: none;
+  }
   a {
     color: currentColor;
     text-decoration: none;
@@ -147,4 +170,8 @@ const ImageWrapper = styled.div<{ speed: number }>`
   animation: ${PatternAnimation} 8s linear 0s infinite;
   animation-duration: ${({ speed }) => speed + "s"};
   animation-play-state: play;
+  @media ${device.mobileL} {
+    height: 60px;
+    width: 60px;
+  }
 `;

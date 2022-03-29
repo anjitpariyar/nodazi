@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Container } from "styled/Common.styled";
 import Link from "next/link";
 import Logo from "public/icons/Logo";
+import { device } from "styled/Breakpoint";
 
 export default function Footer() {
   return (
@@ -35,16 +36,18 @@ export default function Footer() {
           </div>
           <div>
             <Title>SNS</Title>
-            <Text>
-              <a href="ig" target="_blank" rel="noreferrer">
-                instagram
-              </a>
-            </Text>
-            <Text>
-              <a href="http://" target="_blank" rel="noreferrer">
-                Behance
-              </a>
-            </Text>
+            <Social>
+              <Text>
+                <a href="ig" target="_blank" rel="noreferrer">
+                  instagram
+                </a>
+              </Text>
+              <Text>
+                <a href="http://" target="_blank" rel="noreferrer">
+                  Behance
+                </a>
+              </Text>
+            </Social>
           </div>
         </Flex>
       </Container>
@@ -56,10 +59,19 @@ const FooterWrapper = styled.footer`
   padding: 71px 0;
   padding-bottom: 122px;
   font-size: 20px;
+  @media ${device.mobileL} {
+    text-align: center;
+    padding-top: 0;
+  }
+  padding-bottom: 30px;
 `;
 const Flex = styled.div`
   display: flex;
-  justify-content: space-between; ;
+  justify-content: space-between;
+  gap: 2em;
+  @media ${device.mobileL} {
+    flex-direction: column;
+  }
 `;
 
 const Brand = styled.div``;
@@ -77,5 +89,13 @@ const Text = styled.p`
   a {
     color: currentColor;
     text-decoration: none;
+  }
+`;
+
+const Social = styled.div`
+  @media ${device.mobileL} {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
   }
 `;
