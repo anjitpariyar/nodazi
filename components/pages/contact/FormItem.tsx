@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "styled/Breakpoint";
 import { ReactNode } from "react";
 interface ItemProps {
   label?: string;
@@ -19,7 +20,7 @@ export default function FormItem({
 }: ItemProps) {
   return (
     <>
-      <Item width={width && width}>
+      <Item width={width && width} type={type}>
         {label && (
           <Label dangerouslySetInnerHTML={{ __html: label }} type={type} />
         )}
@@ -50,14 +51,18 @@ export default function FormItem({
   );
 }
 
-const Item = styled.div<{ width }>`
+const Item = styled.div<{ width; type }>`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 2em;
+  @media ${device.mobileL} {
+    flex-wrap: ${({ type }) => type === "textarea" && "wrap"};
+  }
   & & {
     margin-bottom: 0em;
   }
+
   &:first-child {
     flex-grow: 2;
   }
@@ -71,6 +76,14 @@ const Label = styled.label<{ type }>`
   width: 120px;
   align-self: ${({ type }) => type === "textarea" && "flex-start"};
   line-height: 1.6;
+  @media ${device.mobileL} {
+    width: ${({ type }) => type === "textarea" && "100%"};
+    max-width: ${({ type }) => type === "textarea" && "100%"};
+    margin-bottom: ${({ type }) => type === "textarea" && "1em"};
+    br {
+      display: none;
+    }
+  }
 `;
 const Input = styled.input`
   width: 100%;

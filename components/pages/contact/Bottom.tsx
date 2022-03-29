@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "styled/Breakpoint";
 
 export default function Bottom() {
   return (
@@ -46,23 +47,35 @@ export default function Bottom() {
 const Footer = styled.footer`
   padding-block: 140px 0;
   font-size: 20px;
+  @media ${device.mobileL} {
+    padding-top: 40px;
+    padding-bottom: 70px;
+    font-size: 16px;
+  }
 `;
 const Grid = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 34px;
 `;
 
 const Title = styled.h2`
   margin-top: 0;
   font-size: 1.4em;
   margin-bottom: 0.8em;
+  @media ${device.mobileL} {
+    font-size: 1em;
+  }
 `;
 
 const Text = styled.p`
   margin-top: 0;
   font-size: 1.3em;
   margin-bottom: 0.6em;
+  @media ${device.mobileL} {
+    font-size: 13px;
+  }
   a {
     color: currentColor;
     text-decoration: none;

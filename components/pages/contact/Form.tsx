@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import FormItem from "./FormItem";
-export default function Form(params) {
+import { device } from "styled/Breakpoint";
+export default function Form() {
   return (
     <Section>
       <form>
@@ -72,14 +73,23 @@ const Grid = styled.div`
   gap: 20px;
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 100px;
+  @media ${device.tablet} {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 const Div = styled.div`
   padding-right: 100px;
+  @media ${device.tablet} {
+    padding-right: 0;
+  }
 `;
 
 const Section = styled.div`
   padding-bottom: 100px;
   border-bottom: 1px solid #fff;
+  @media ${device.mobileL} {
+    font-size: 16px;
+  }
 `;
 const BtnCenter = styled.div`
   display: flex;
