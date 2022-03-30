@@ -24,6 +24,18 @@ export default function Form() {
   const onSubmit = (event: any) => {
     event.preventDefault();
     console.log(data);
+    setData({
+      ...data,
+      name: "",
+      companyName: "",
+      email: "",
+      contact: "",
+      requestField: "",
+      expectedDate: "",
+      inquiry: "",
+      privacy: "",
+      agree: false,
+    });
   };
   const {
     name,
@@ -48,12 +60,14 @@ export default function Form() {
               value={name}
               onChange={onChange}
               name={"name"}
+              pattern="^[A-Za-z\s]+$"
             />
             <FormItem
               label="회사명"
               type="text"
               value={companyName}
               onChange={onChange}
+              pattern="^[A-Za-z\s]+$"
               name={"companyName"}
             />
             <FormItem
@@ -62,6 +76,7 @@ export default function Form() {
               value={email}
               onChange={onChange}
               name={"email"}
+              pattern="^\s@]+@[^\s@]+\.[^\s@]+$"
             />
             <FormItem
               label="연락처"

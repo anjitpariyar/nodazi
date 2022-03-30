@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { device } from "styled/Breakpoint";
 import { ReactNode } from "react";
+
 interface ItemProps {
   label?: string;
   type: string;
@@ -10,6 +11,7 @@ interface ItemProps {
   text?: string;
   value?: any;
   name?: string;
+  pattern?: string;
   onChange?: (event: any) => void;
 }
 
@@ -22,62 +24,148 @@ export default function FormItem({
   onChange,
   value,
   name,
+  pattern,
 }: ItemProps) {
+  const Change = (event: any) => {
+    onChange(event);
+    const re = new RegExp(event.target.pattern);
+    const valid = re.test(event?.target.value);
+    event.target.parentElement.classList.toggle("error", !valid);
+  };
+
   return (
     <>
-      <Item width={width && width} type={type}>
-        {label && (
-          <Label dangerouslySetInnerHTML={{ __html: label }} type={type} />
-        )}
+      {
         {
-          {
-            text: (
-              <Input
-                type={type}
-                name={name}
-                value={value}
-                onChange={onChange}
-              />
-            ),
-            select: (
-              <Select name={name} value={value} onChange={onChange}>
-                {options?.map(({ text, id, index }) => (
-                  <option value={id} key={id} selected={index === 0}>
-                    {text}
-                  </option>
-                ))}
-              </Select>
-            ),
-            date: (
-              <Input
-                type={type}
-                name={name}
-                value={value}
-                onChange={onChange}
-              />
-            ),
-            textarea: (
-              <Textarea name={name} value={value} onChange={onChange} />
-            ),
-            checkbox: (
-              <CheckboxWrap>
-                <Checkbox
-                  type="checkbox"
-                  id="test1"
-                  checked={value}
-                  onClick={onChange}
+          text: (
+            <Wrapper>
+              <Item width={width && width} type={type}>
+                {label && (
+                  <Label
+                    dangerouslySetInnerHTML={{ __html: label }}
+                    type={type}
+                  />
+                )}
+                <Input
+                  type={type}
                   name={name}
+                  value={value}
+                  onChange={Change}
+                  required
+                  pattern={pattern}
                 />
-                <label htmlFor="test1">{text}</label>
-              </CheckboxWrap>
-            ),
-          }[type]
-        }
-      </Item>
+              </Item>
+              <Error>Enter a valid {label}</Error>
+            </Wrapper>
+          ),
+          select: (
+            <Wrapper>
+              <Item width={width && width} type={type}>
+                {label && (
+                  <Label
+                    dangerouslySetInnerHTML={{ __html: label }}
+                    type={type}
+                  />
+                )}
+                <Select name={name} value={value} onChange={onChange} required>
+                  {options?.map(({ text, id, index }) => (
+                    <option value={id} key={id} selected={index === 0}>
+                      {text}
+                    </option>
+                  ))}
+                </Select>
+              </Item>
+            </Wrapper>
+          ),
+          date: (
+            <Wrapper>
+              <Item width={width && width} type={type}>
+                {label && (
+                  <Label
+                    dangerouslySetInnerHTML={{ __html: label }}
+                    type={type}
+                  />
+                )}
+                <Input
+                  type={type}
+                  name={name}
+                  value={value}
+                  onChange={onChange}
+                  required
+                />
+              </Item>
+            </Wrapper>
+          ),
+          textarea: (
+            <Wrapper>
+              <Item width={width && width} type={type}>
+                {label && (
+                  <Label
+                    dangerouslySetInnerHTML={{ __html: label }}
+                    type={type}
+                  />
+                )}
+                <Textarea
+                  name={name}
+                  value={value}
+                  onChange={onChange}
+                  required
+                />
+              </Item>
+            </Wrapper>
+          ),
+          checkbox: (
+            <Wrapper>
+              <Item width={width && width} type={type}>
+                {label && (
+                  <Label
+                    dangerouslySetInnerHTML={{ __html: label }}
+                    type={type}
+                  />
+                )}
+                <CheckboxWrap>
+                  <Checkbox
+                    type="checkbox"
+                    id="test1"
+                    checked={value}
+                    onClick={onChange}
+                    name={name}
+                    required
+                  />
+                  <label htmlFor="test1">{text}</label>
+                </CheckboxWrap>
+              </Item>
+            </Wrapper>
+          ),
+        }[type]
+      }
     </>
   );
 }
-
+const Error = styled.div`
+  font-size: 14px;
+  color: red;
+  position: absolute;
+  top: 46px;
+  left: 120px;
+  display: none;
+`;
+const Input = styled.input`
+  width: 100%;
+  height: 36px;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  border-bottom: ${({ theme }) => "1px solid " + theme.white};
+  padding: 0;
+  outline: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: ${({ theme }) => theme.white};
+  box-sizing: border-box;
+`;
 const Item = styled.div<{ width; type }>`
   display: flex;
   justify-content: space-between;
@@ -94,6 +182,15 @@ const Item = styled.div<{ width; type }>`
     flex-grow: 2;
   }
   width: ${({ width }) => width && width + "px"};
+  &.error {
+    & + ${Error} {
+      display: block;
+    }
+    ${Input} {
+      border-color: red;
+      color: red;
+    }
+  }
 `;
 const Label = styled.label<{ type }>`
   margin: 0;
@@ -111,22 +208,6 @@ const Label = styled.label<{ type }>`
       display: none;
     }
   }
-`;
-const Input = styled.input`
-  width: 100%;
-  height: 36px;
-  background-color: transparent;
-  box-shadow: none;
-  border: none;
-  border-bottom: ${({ theme }) => "1px solid " + theme.white};
-  padding: 0;
-  outline: none;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
-  color: ${({ theme }) => theme.white};
-  box-sizing: border-box;
 `;
 
 const Select = styled(Input).attrs({ as: "select" })`
@@ -184,4 +265,8 @@ const Checkbox = styled.input`
     content: "✅";
     background-color: transparent;
   }
+`;
+
+const Wrapper = styled.div`
+  position: relative;
 `;
