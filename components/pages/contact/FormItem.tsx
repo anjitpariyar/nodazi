@@ -41,8 +41,8 @@ export default function FormItem({
             ),
             select: (
               <Select name={name} value={value} onChange={onChange}>
-                {options?.map(({ text, id }) => (
-                  <option value={id} key={id}>
+                {options?.map(({ text, id, index }) => (
+                  <option value={id} key={id} selected={index === 0}>
                     {text}
                   </option>
                 ))}
