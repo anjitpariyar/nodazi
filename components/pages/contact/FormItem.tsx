@@ -8,15 +8,20 @@ interface ItemProps {
   children?: ReactNode;
   width?: number;
   text?: string;
+  value?: any;
+  name?: string;
+  onChange?: (event: any) => void;
 }
 
 export default function FormItem({
   label,
   type,
   options,
-  children,
   width,
   text,
+  onChange,
+  value,
+  name,
 }: ItemProps) {
   return (
     <>
@@ -26,9 +31,16 @@ export default function FormItem({
         )}
         {
           {
-            text: <Input type={type} />,
+            text: (
+              <Input
+                type={type}
+                name={name}
+                value={value}
+                onChange={onChange}
+              />
+            ),
             select: (
-              <Select>
+              <Select name={name} value={value} onChange={onChange}>
                 {options?.map(({ text, id }) => (
                   <option value={id} key={id}>
                     {text}
@@ -36,11 +48,26 @@ export default function FormItem({
                 ))}
               </Select>
             ),
-            date: <Wrap>{children}</Wrap>,
-            textarea: <Textarea />,
+            date: (
+              <Input
+                type={type}
+                name={name}
+                value={value}
+                onChange={onChange}
+              />
+            ),
+            textarea: (
+              <Textarea name={name} value={value} onChange={onChange} />
+            ),
             checkbox: (
               <CheckboxWrap>
-                <Checkbox type="checkbox" id="test1" />
+                <Checkbox
+                  type="checkbox"
+                  id="test1"
+                  checked={value}
+                  onClick={onChange}
+                  name={name}
+                />
                 <label htmlFor="test1">{text}</label>
               </CheckboxWrap>
             ),

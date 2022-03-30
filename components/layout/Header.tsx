@@ -30,6 +30,7 @@ export default function Header() {
   useEffect(() => {
     document.querySelector("html").style.overflow = "auto";
   }, []);
+
   return (
     <HeaderWrap>
       <Container>

@@ -1,16 +1,75 @@
 import styled from "styled-components";
 import FormItem from "./FormItem";
 import { device } from "styled/Breakpoint";
+import { useState } from "react";
 export default function Form() {
+  const [data, setData] = useState({
+    name: "",
+    companyName: "",
+    email: "",
+    contact: "",
+    requestField: "",
+    expectedDate: "",
+    inquiry: "",
+    privacy: "",
+    agree: false,
+  });
+  const onChange = (event: any) => {
+    if (event.target.type === "checkbox") {
+      setData({ ...data, [event.target.name]: !agree });
+    } else {
+      setData({ ...data, [event.target.name]: event.target.value });
+    }
+  };
+  const onSubmit = (event: any) => {
+    event.preventDefault();
+    console.log(data);
+  };
+  const {
+    name,
+    companyName,
+    email,
+    contact,
+    requestField,
+    expectedDate,
+    inquiry,
+    privacy,
+    agree,
+  } = data;
+
   return (
     <Section>
-      <form>
+      <form onSubmit={onSubmit}>
         <Grid>
           <Div>
-            <FormItem label="이름" type="text" />
-            <FormItem label="회사명" type="text" />
-            <FormItem label="이메일" type="text" />
-            <FormItem label="연락처" type="text" />
+            <FormItem
+              label="이름"
+              type="text"
+              value={name}
+              onChange={onChange}
+              name={"name"}
+            />
+            <FormItem
+              label="회사명"
+              type="text"
+              value={companyName}
+              onChange={onChange}
+              name={"companyName"}
+            />
+            <FormItem
+              label="이메일"
+              type="text"
+              value={email}
+              onChange={onChange}
+              name={"email"}
+            />
+            <FormItem
+              label="연락처"
+              type="text"
+              value={contact}
+              onChange={onChange}
+              name="contact"
+            />
             <FormItem
               label="의뢰분야"
               type="select"
@@ -19,44 +78,41 @@ export default function Form() {
                 { text: "two", id: 2 },
                 { text: "three", id: 3 },
               ]}
+              value={requestField}
+              onChange={onChange}
+              name="requestField"
             />
-            <FormItem label="예상날짜" type="date">
-              <FormItem
-                type="select"
-                options={[
-                  { text: "2022", id: 2022 },
-                  { text: "2023", id: 2023 },
-                  { text: "2024", id: 2024 },
-                ]}
-                width={75}
-              />
-              <FormItem
-                type="select"
-                options={[
-                  { text: "Jan", id: 1 },
-                  { text: "Feb", id: 2 },
-                  { text: "March", id: 3 },
-                ]}
-                width={75}
-              />
-              <FormItem
-                type="select"
-                options={[
-                  { text: "1", id: 1 },
-                  { text: "2", id: 2 },
-                  { text: "3", id: 3 },
-                ]}
-                width={75}
-              />
-            </FormItem>
+            <FormItem
+              label="예상날짜"
+              type="date"
+              value={expectedDate}
+              onChange={onChange}
+              name={"expectedDate"}
+            ></FormItem>
           </Div>
+          {/* line break */}
           <div>
-            <FormItem label="문의" type="textarea" />
-            <FormItem label="개인정보 <br/> 수집동의" type="textarea" />
+            <FormItem
+              label="문의"
+              type="textarea"
+              value={inquiry}
+              onChange={onChange}
+              name={"inquiry"}
+            />
+            <FormItem
+              label="개인정보 <br/> 수집동의"
+              type="textarea"
+              value={privacy}
+              onChange={onChange}
+              name="privacy"
+            />
             <FormItem
               text="개인정보 수집 및 이용에 동의합니다."
               type="checkbox"
               label="<span></span>"
+              name={"agree"}
+              onChange={onChange}
+              value={agree}
             />
           </div>
         </Grid>
