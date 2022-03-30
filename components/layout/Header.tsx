@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import { Container } from "styled/Common.styled";
 import Link from "next/link";
@@ -26,6 +26,10 @@ export default function Header() {
       ease: "ease-in",
     });
   };
+
+  useEffect(() => {
+    document.querySelector("html").style.overflow = "auto";
+  }, []);
   return (
     <HeaderWrap>
       <Container>
