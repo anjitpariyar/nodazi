@@ -15,11 +15,16 @@ export default function Form() {
     agree: false,
   });
   const onChange = (event: any) => {
+    console.log(name);
     if (event.target.type === "checkbox") {
       setData({ ...data, [event.target.name]: !agree });
     } else {
       setData({ ...data, [event.target.name]: event.target.value });
     }
+  };
+  const dateChanged = (value: any, name: string) => {
+    console.log(name, value);
+    setData({ ...data, [name]: value });
   };
   const onSubmit = (event: any) => {
     event.preventDefault();
@@ -102,7 +107,7 @@ export default function Form() {
               label="예상날짜"
               type="date"
               value={expectedDate}
-              onChange={onChange}
+              onChange={dateChanged}
               name={"expectedDate"}
             ></FormItem>
           </Div>

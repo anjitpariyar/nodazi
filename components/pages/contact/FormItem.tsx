@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { device } from "styled/Breakpoint";
 import { ReactNode } from "react";
-
+// import DatePicker from "react-date-picker";
+import DatePicker from "react-date-picker/dist/entry.nostyle";
 interface ItemProps {
   label?: string;
   type: string;
@@ -12,7 +13,7 @@ interface ItemProps {
   value?: any;
   name?: string;
   pattern?: string;
-  onChange?: (event: any) => void;
+  onChange?: (event: any, name?: string, value?: any) => void;
 }
 
 export default function FormItem({
@@ -33,15 +34,6 @@ export default function FormItem({
     event.target.parentElement.classList.toggle("error", !valid);
   };
   const todayy = new Date();
-  const yyyy: any = todayy.getFullYear();
-  let mm: any = todayy.getMonth() + 1; // Months start at 0!
-  let dd: any = todayy.getDate();
-
-  if (dd < 10) dd = "0" + dd;
-  if (mm < 10) mm = "0" + mm;
-
-  const today = yyyy + "-" + mm + "-" + dd;
-
   return (
     <>
       {
@@ -95,13 +87,19 @@ export default function FormItem({
                     type={type}
                   />
                 )}
-                <Input
+                {/* <Input
                   type={type}
                   name={name}
                   value={value}
                   onChange={onChange}
                   required
-                  min={today}
+                 
+                /> */}
+                <DatePicker
+                  value={value}
+                  name={name}
+                  onChange={(value) => onChange(value, name)}
+                  minDate={todayy}
                 />
               </Item>
             </Wrapper>
@@ -199,6 +197,44 @@ const Item = styled.div<{ width; type }>`
     ${Input} {
       border-color: red;
       color: red;
+    }
+  }
+  .react-date-picker {
+    width: 100%;
+    .react-date-picker__inputGroup {
+      height: 36px;
+      border-color: ${({ theme }) => theme.white};
+      color: ${({ theme }) => theme.white};
+      .react-date-picker__inputGroup__input {
+        color: ${({ theme }) => theme.white};
+      }
+    }
+    .react-date-picker__clear-button {
+      display: none;
+    }
+    .react-date-picker__button {
+      svg {
+        stroke: ${({ theme }) => theme.white};
+      }
+    }
+  }
+  .react-calendar {
+    background-color: ${({ theme }) => theme.black};
+    color: ${({ theme }) => theme.white};
+    .react-calendar__navigation button,
+    .react-calendar__month-view__days__day:not(.react-calendar__month-view__days__day--neighboringMonth) {
+      color: ${({ theme }) => theme.white};
+      /* background-color: transparent; */
+      &:hover,
+      &:focus {
+        background-color: #e6e6e654;
+      }
+    }
+    .react-calendar__navigation__arrow {
+      background-color: #e6e6e654;
+    }
+    .react-calendar__tile--now {
+      background-color: ${({ theme }) => theme.primary};
     }
   }
 `;
