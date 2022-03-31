@@ -76,7 +76,7 @@ export default function Form() {
               value={email}
               onChange={onChange}
               name={"email"}
-              pattern="^\s@]+@[^\s@]+\.[^\s@]+$"
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
             />
             <FormItem
               label="연락처"
@@ -84,6 +84,7 @@ export default function Form() {
               value={contact}
               onChange={onChange}
               name="contact"
+              pattern="^[\d]{9,12}$"
             />
             <FormItem
               label="의뢰분야"

@@ -32,6 +32,15 @@ export default function FormItem({
     const valid = re.test(event?.target.value);
     event.target.parentElement.classList.toggle("error", !valid);
   };
+  const todayy = new Date();
+  const yyyy: any = todayy.getFullYear();
+  let mm: any = todayy.getMonth() + 1; // Months start at 0!
+  let dd: any = todayy.getDate();
+
+  if (dd < 10) dd = "0" + dd;
+  if (mm < 10) mm = "0" + mm;
+
+  const today = yyyy + "-" + mm + "-" + dd;
 
   return (
     <>
@@ -69,7 +78,11 @@ export default function FormItem({
                 )}
                 <Select name={name} value={value} onChange={onChange} required>
                   {options?.map(({ text, id, index }) => (
-                    <option value={id} key={id} selected={index === 0}>
+                    <option
+                      value={id}
+                      key={id}
+                      defaultValue={index === 0 ? true : false}
+                    >
                       {text}
                     </option>
                   ))}
@@ -92,6 +105,7 @@ export default function FormItem({
                   value={value}
                   onChange={onChange}
                   required
+                  min={today}
                 />
               </Item>
             </Wrapper>
@@ -128,7 +142,7 @@ export default function FormItem({
                     type="checkbox"
                     id="test1"
                     checked={value}
-                    onClick={onChange}
+                    onChange={onChange}
                     name={name}
                     required
                   />
