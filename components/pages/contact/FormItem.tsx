@@ -78,11 +78,7 @@ export default function FormItem({
                 )}
                 <Select name={name} value={value} onChange={onChange} required>
                   {options?.map(({ text, id, index }) => (
-                    <option
-                      value={id}
-                      key={id}
-                      defaultValue={index === 0 ? true : false}
-                    >
+                    <option value={id} key={id}>
                       {text}
                     </option>
                   ))}

@@ -30,7 +30,7 @@ export default function Form() {
       companyName: "",
       email: "",
       contact: "",
-      requestField: "",
+      requestField: "1",
       expectedDate: "",
       inquiry: "",
       privacy: "",
