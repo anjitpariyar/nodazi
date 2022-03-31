@@ -60,14 +60,14 @@ export default function Form() {
               value={name}
               onChange={onChange}
               name={"name"}
-              pattern="^[A-Za-z\s]+$"
+              pattern="^[a-z\s\u3131-\uD79D]+$"
             />
             <FormItem
               label="회사명"
               type="text"
               value={companyName}
               onChange={onChange}
-              pattern="^[A-Za-z\s]+$"
+              pattern="^[a-z\s\u3131-\uD79D]+$"
               name={"companyName"}
             />
             <FormItem

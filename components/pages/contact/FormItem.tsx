@@ -28,7 +28,7 @@ export default function FormItem({
 }: ItemProps) {
   const Change = (event: any) => {
     onChange(event);
-    const re = new RegExp(event.target.pattern);
+    const re = new RegExp(event.target.pattern, "i");
     const valid = re.test(event?.target.value);
     event.target.parentElement.classList.toggle("error", !valid);
   };
