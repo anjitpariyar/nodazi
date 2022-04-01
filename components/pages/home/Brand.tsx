@@ -76,8 +76,8 @@ const Title = styled.h2`
     width: 100%;
   }
   span {
-    transition: 0.4s ease-in;
-    transition-delay: 0.15s;
+    transition: 1s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+    transition-delay: 0.5s;
     @media ${device.tablet} {
       color: ${({ theme }) => theme.white};
     }
@@ -113,6 +113,7 @@ const ovalAnimation = keyframes`
  
  100% {stroke-dasharray: 913}
 `;
+
 const PatternAnimation = keyframes`
  0% { transform: translateX(-280%);
  }
