@@ -25,7 +25,7 @@ export default function Brand() {
                   src={image1}
                   layout="fill"
                   alt={"portfolio "}
-                  blurDataURL={"/public/image/Ellipse1.png"}
+                  blurDataURL={"/image/Ellipse1.png"}
                   placeholder="blur"
                   objectFit="cover"
                 />

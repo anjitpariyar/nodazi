@@ -53,7 +53,7 @@ export default function Details() {
             src={image1}
             layout="fill"
             alt={"portfolio "}
-            blurDataURL={"/public/image/portfolio/Rectangle23.png"}
+            blurDataURL={"/image/portfolio/Rectangle23.png"}
             placeholder="blur"
             objectFit="contain"
           />
@@ -63,7 +63,7 @@ export default function Details() {
             src={image2}
             layout="fill"
             alt={"portfolio "}
-            blurDataURL={"/public/image/portfolio/Rectangle23.png"}
+            blurDataURL={"/image/portfolio/Rectangle23.png"}
             placeholder="blur"
             objectFit="contain"
           />
@@ -73,7 +73,7 @@ export default function Details() {
             src={image3}
             layout="fill"
             alt={"portfolio "}
-            blurDataURL={"/public/image/portfolio/Rectangle23.png"}
+            blurDataURL={"/image/portfolio/Rectangle23.png"}
             placeholder="blur"
             objectFit="contain"
           />

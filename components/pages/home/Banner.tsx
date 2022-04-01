@@ -14,7 +14,7 @@ export default function Banner() {
           alt={
             "NDZ 새로운 발견을 통해 숨어있는 브랜드의 가치를 알아채고 표현하는 사람들  "
           }
-          blurDataURL="public/image/home_banner.png"
+          blurDataURL="/image/home_banner.png"
           placeholder="blur"
           unoptimized={true}
         />
