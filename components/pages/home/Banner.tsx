@@ -46,6 +46,9 @@ const TextWrap = styled.div`
   bottom: 71px;
   left: 0;
   width: 100%;
+  .marquee-container {
+    overflow-y: hidden;
+  }
   @media ${device.mobileL} {
     display: none;
   }
