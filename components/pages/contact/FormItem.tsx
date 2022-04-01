@@ -100,6 +100,10 @@ export default function FormItem({
                   name={name}
                   onChange={(value) => onChange(value, name)}
                   minDate={todayy}
+                  required
+                  dayPlaceholder="dd"
+                  monthPlaceholder="mm"
+                  yearPlaceholder="yy"
                 />
               </Item>
             </Wrapper>
@@ -142,6 +146,7 @@ export default function FormItem({
                   />
                   <label htmlFor="test1">{text}</label>
                 </CheckboxWrap>
+                <Error>You need to check on above agreement</Error>
               </Item>
             </Wrapper>
           ),
@@ -208,6 +213,9 @@ const Item = styled.div<{ width; type }>`
       .react-date-picker__inputGroup__input {
         color: ${({ theme }) => theme.white};
       }
+      input {
+        pointer-events: none;
+      }
     }
     .react-date-picker__clear-button {
       display: none;
@@ -235,6 +243,9 @@ const Item = styled.div<{ width; type }>`
     }
     .react-calendar__tile--now {
       background-color: ${({ theme }) => theme.primary};
+    }
+    .react-calendar__tile:disabled {
+      color: ${({ theme }) => theme.grey01};
     }
   }
 `;
@@ -269,15 +280,7 @@ const Textarea = styled(Input).attrs({ as: "textarea" })`
   resize: none;
   scrollbar-width: thin;
 `;
-const Wrap = styled.div`
-  display: flex;
-  gap: 0.9em;
-  width: 100%;
-`;
 
-const CheckboxWrap = styled.div`
-  width: 100%;
-`;
 const Checkbox = styled.input`
   position: absolute;
   opacity: 0;
@@ -312,7 +315,19 @@ const Checkbox = styled.input`
     background-color: transparent;
   }
 `;
-
+const CheckboxWrap = styled.div`
+  width: 100%;
+  &.error {
+    & + ${Error} {
+      display: block;
+    }
+    ${Checkbox} {
+      & + label:before {
+        border: 1px solid red;
+      }
+    }
+  }
+`;
 const Wrapper = styled.div`
   position: relative;
 `;

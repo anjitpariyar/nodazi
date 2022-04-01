@@ -18,6 +18,7 @@ export default function Form() {
     console.log(name);
     if (event.target.type === "checkbox") {
       setData({ ...data, [event.target.name]: !agree });
+      event.target.parentElement.classList.toggle("error", agree);
     } else {
       setData({ ...data, [event.target.name]: event.target.value });
     }
@@ -29,6 +30,7 @@ export default function Form() {
   const onSubmit = (event: any) => {
     event.preventDefault();
     console.log(data);
+
     setData({
       ...data,
       name: "",
@@ -65,14 +67,14 @@ export default function Form() {
               value={name}
               onChange={onChange}
               name={"name"}
-              pattern="^[a-z\s\u3131-\uD79D]+$"
+              pattern="^[a-zA-Z\s\u3131-\uD79D]+$"
             />
             <FormItem
               label="회사명"
               type="text"
               value={companyName}
               onChange={onChange}
-              pattern="^[a-z\s\u3131-\uD79D]+$"
+              pattern="^[a-zA-Z\s\u3131-\uD79D]+$"
               name={"companyName"}
             />
             <FormItem
