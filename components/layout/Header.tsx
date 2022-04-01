@@ -6,8 +6,11 @@ import Star from "public/icons/Star";
 import Cross from "public/icons/Cross";
 import { device } from "styled/Breakpoint";
 import { gsap } from "gsap";
+import { useRouter } from "next/router";
 
 export default function Header() {
+  const router = useRouter();
+  const { pathname } = router;
   const SideMenu = useRef(null);
   const t1 = gsap.timeline();
   const open = () => {
@@ -35,17 +38,21 @@ export default function Header() {
     <HeaderWrap>
       <Container>
         <Nav ref={SideMenu}>
-          <Item>
+          <Item active={pathname === "/about"}>
             <Link href="/about">
               <a>ABOUT</a>
             </Link>
           </Item>
-          <Item>
+          <Item
+            active={
+              pathname === "/portfolio" || pathname === "/portfolio/[pid]"
+            }
+          >
             <Link href="/portfolio">
               <a>WORK</a>
             </Link>
           </Item>
-          <Item>
+          <Item active={pathname === "/contact"}>
             <Link href="/contact">
               <a>CONTACT</a>
             </Link>
@@ -113,10 +120,11 @@ const Nav = styled.nav`
     z-index: 100;
   }
 `;
-const Item = styled.li`
+const Item = styled.li<{ active }>`
   display: inline-block;
   a {
-    color: currentColor;
+    color: ${({ theme, active }) =>
+      active ? theme.secondary : "currentColor"};
     text-decoration: none;
     &:hover {
       color: ${({ theme }) => theme.secondary};
