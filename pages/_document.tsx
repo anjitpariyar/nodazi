@@ -36,13 +36,28 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link href="/info.svg" rel="icon" type="image/gif" sizes="16x16" />
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+          <link
+            href="/image/fav.png"
+            rel="icon"
+            type="image/gif"
+            sizes="16x16"
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           {/* <link rel="preconnect" href="https://fonts.gstatic.com" /> */}
           <link
             href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300;400;500;600&display=swap"
             rel="stylesheet"
           />
+          <meta property="og:title" content="NODAZI STUDIO" />
+          <meta property="og:type" content="card" />
+          {/* <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" /> */}
+          <meta property="og:image" content="/image/home_banner.png" />
+          <meta name="theme-color" content="#000" />
         </Head>
         <body>
           <Main />

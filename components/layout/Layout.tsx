@@ -7,15 +7,19 @@ import Footer from "./Footer";
 type Props = {
   children?: ReactNode;
   title?: string;
+  des?: string;
 };
 import FadeInOut from "components/layout/FadeInOut";
 
-const Layout = ({ children, title = "This is the default title" }: Props) => (
+const Layout = ({
+  children,
+  title = "NODAZI STUDIO",
+  des = "NODAZI STUDIO  is a graphic design studio.Understand the invisible essence of companies and brands, and develop creative ideas ",
+}: Props) => (
   <div>
     <Head>
       <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta name="description" content={des} />
     </Head>
     <FadeInOut>
       <Header />
