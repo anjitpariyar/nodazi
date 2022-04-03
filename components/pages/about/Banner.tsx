@@ -135,6 +135,7 @@ const Text = styled.p`
   line-height: 1.8;
   position: relative;
   z-index: 2;
+  font-weight: 300;
   @media ${device.laptop} {
     white-space: normal;
   }
