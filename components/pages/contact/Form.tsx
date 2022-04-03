@@ -199,4 +199,7 @@ const Button = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.primaryFade};
   }
+  @media ${device.mobileL} {
+    font-size: 16px;
+  }
 `;
