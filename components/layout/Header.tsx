@@ -65,12 +65,16 @@ export default function Header() {
             </Link>
           </StarWrap>
           <Item>
-            <a href="ig" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
               INSTAGRAM
             </a>
           </Item>
           <Item>
-            <a href="ig" target="_blank" rel="noreferrer">
+            <a href="https://www.behance.net/" target="_blank" rel="noreferrer">
               BEHANCE
             </a>
           </Item>
