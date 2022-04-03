@@ -111,6 +111,7 @@ export default function FormItem({
                   dayPlaceholder="dd"
                   monthPlaceholder="mm"
                   yearPlaceholder="yy"
+                  format="y-MM-dd"
                 />
               </Item>
             </Wrapper>
