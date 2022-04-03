@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { device } from "styled/Breakpoint";
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 // import DatePicker from "react-date-picker";
 import DatePicker from "react-date-picker/dist/entry.nostyle";
 interface ItemProps {
@@ -34,6 +34,13 @@ export default function FormItem({
     event.target.parentElement.classList.toggle("error", !valid);
   };
   const todayy = new Date();
+  useEffect(() => {
+    [
+      ...document.querySelectorAll(
+        ".react-date-picker .react-date-picker__inputGroup input"
+      ),
+    ].map((elem) => elem.setAttribute("readonly", "true"));
+  });
   return (
     <>
       {
@@ -214,7 +221,7 @@ const Item = styled.div<{ width; type }>`
         color: ${({ theme }) => theme.white};
       }
       input {
-        pointer-events: none;
+        /* pointer-events: none; */
       }
     }
     .react-date-picker__clear-button {
@@ -241,11 +248,20 @@ const Item = styled.div<{ width; type }>`
     .react-calendar__navigation__arrow {
       background-color: #e6e6e654;
     }
-    .react-calendar__tile--now {
+    .react-calendar__tile--now,
+    .react-calendar__year-view .react-calendar__tile.react-calendar__tile--now,
+    .react-calendar__tile.react-calendar__tile--now {
       background-color: ${({ theme }) => theme.primary};
     }
     .react-calendar__tile:disabled {
       color: ${({ theme }) => theme.grey01};
+    }
+    .react-calendar__year-view .react-calendar__tile,
+    .react-calendar__decade-view__years__year {
+      background-color: ${({ theme }) => theme.white};
+      &[disabled] {
+        background-color: ${({ theme }) => theme.grey};
+      }
     }
   }
 `;

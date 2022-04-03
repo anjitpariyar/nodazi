@@ -15,7 +15,7 @@ export default function Form() {
     agree: false,
   });
   const onChange = (event: any) => {
-    console.log(name);
+    // console.log(name);
     if (event.target.type === "checkbox") {
       setData({ ...data, [event.target.name]: !agree });
       event.target.parentElement.classList.toggle("error", agree);
@@ -24,7 +24,7 @@ export default function Form() {
     }
   };
   const dateChanged = (value: any, name: string) => {
-    console.log(name, value);
+    // console.log(name, value);
     setData({ ...data, [name]: value });
   };
   const onSubmit = (event: any) => {
