@@ -38,7 +38,7 @@ export default function Details() {
               캐릭터를 디자인하여 프로그램북, 활동지, 활동카드, PPT, WEB에
               적용하였습니다.
             </Para>
-            <Para>
+            <Para light={true}>
               VISION DRIVE with 2021 Hyundai Motor Company is an educational
               program for elementary school students and designed characters
               that arouse interest at the children&apos;s level and applied them
@@ -114,10 +114,11 @@ const Title = styled.h2`
   margin-top: 0;
   font-weight: 700;
 `;
-const Para = styled.p`
+const Para = styled.p<{ light: boolean }>`
   margin-top: 0;
   margin-bottom: 1.5em;
   line-height: 1.6;
+  font-weight: ${({ light }) => light && "300"};
   span {
     width: 116px;
     display: inline-block;
