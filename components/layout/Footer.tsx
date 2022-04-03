@@ -3,23 +3,40 @@ import styled from "styled-components";
 import Link from "next/link";
 import Circle from "public/icons/Circle";
 import { device } from "styled/Breakpoint";
+import { useRouter } from "next/router";
 export default function Footer() {
+  const { pathname } = useRouter();
+  console.log(pathname);
   return (
-    <FooterWrap>
-      <Link href="/contact">
-        <a>
-          <Circle />
-        </a>
-      </Link>
-    </FooterWrap>
+    <>
+      {pathname !== "/contact" && (
+        <FooterWrap>
+          <Link href="/contact">
+            <a>
+              <Circle />
+            </a>
+          </Link>
+        </FooterWrap>
+      )}
+    </>
   );
 }
 
 const FooterWrap = styled.footer`
-  position: absolute;
+  /* position: absolute;
   right: 43px;
   bottom: 50px;
-  z-index: 2;
+  z-index: 2; */
+  /* text-align: right;
+  padding: 0 43px 43px 0; */
+  text-align: right;
+  display: inline-block;
+  transform: translateX(calc(100vw - 180px));
+  margin-top: -5em;
+  padding-bottom: 73px;
+  @media ${device.laptop} {
+    margin-top: -5em;
+  }
   @media ${device.mobileL} {
     display: none;
   }
