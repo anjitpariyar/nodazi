@@ -4,7 +4,7 @@ import Image from "next/image";
 import Cube from "public/icons/Cube";
 import image1 from "public/image/portfolio/Rectangle23.png";
 import image2 from "public/image/portfolio/Rectangle25.png";
-import image3 from "public/image/portfolio/Rectangle25.png";
+import image3 from "public/image/portfolio/Rectangle26.png";
 import { device } from "styled/Breakpoint";
 
 export default function Details() {
