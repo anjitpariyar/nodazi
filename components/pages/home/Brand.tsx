@@ -34,7 +34,7 @@ export default function Brand() {
           </Title>
 
           <Button>
-            <Link href="/">
+            <Link href="/portfolio">
               <a>
                 <span>WORK</span>
                 <Arrow />
