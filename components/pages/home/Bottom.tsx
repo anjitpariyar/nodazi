@@ -76,18 +76,35 @@ const Flex = styled.div`
   }
 `;
 
-const Brand = styled.div``;
+const Brand = styled.div`
+  a {
+    display: inline-block;
+    svg {
+      @media ${device.mobileL} {
+        height: 24px;
+        width: auto;
+      }
+    }
+  }
+`;
 
 const Title = styled.h2`
   margin-top: 0;
   font-size: 1em;
   margin-bottom: 0.6em;
+  @media ${device.mobileL} {
+    font-size: 13px;
+  }
 `;
 
 const Text = styled.p`
   margin-top: 0;
   font-size: 1em;
   margin-bottom: 0.6em;
+  @media ${device.mobileL} {
+    font-weight: 300;
+    font-size: 13px;
+  }
   a {
     color: currentColor;
     text-decoration: none;

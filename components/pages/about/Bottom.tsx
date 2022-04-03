@@ -95,8 +95,10 @@ const Text = styled.p`
   margin-top: 0;
   font-size: 1.3em;
   margin-bottom: 0.6em;
+
   @media ${device.mobileL} {
     font-size: 13px;
+    font-weight: 300;
   }
   a {
     color: currentColor;

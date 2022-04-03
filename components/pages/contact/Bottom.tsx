@@ -14,7 +14,6 @@ export default function Bottom() {
         </div>
         <div>
           <Title>CALL</Title>
-          <Title>CALL</Title>
           <Text>
             <span>T. </span>
             <a href="tel:070-8807-1668">070-8807-1668</a>
@@ -27,16 +26,18 @@ export default function Bottom() {
 
         <div>
           <Title>SNS</Title>
-          <Text>
-            <a href="https://instagram.com/" target="_blank" rel="noreferrer">
-              Instagram
-            </a>
-          </Text>
-          <Text>
-            <a href="https://behance.net" target="_blank" rel="noreferrer">
-              Behance
-            </a>
-          </Text>
+          <Social>
+            <Text>
+              <a href="https://instagram.com/" target="_blank" rel="noreferrer">
+                Instagram
+              </a>
+            </Text>
+            <Text>
+              <a href="https://behance.net" target="_blank" rel="noreferrer">
+                Behance
+              </a>
+            </Text>
+          </Social>
         </div>
       </Grid>
     </Footer>
@@ -57,6 +58,9 @@ const Grid = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 34px;
+  @media ${device.mobileL} {
+    flex-direction: column;
+  }
 `;
 
 const Title = styled.h2`
@@ -64,7 +68,7 @@ const Title = styled.h2`
   font-size: 1.4em;
   margin-bottom: 0.8em;
   @media ${device.mobileL} {
-    font-size: 1em;
+    font-size: 14px;
   }
 `;
 
@@ -72,11 +76,19 @@ const Text = styled.p`
   margin-top: 0;
   font-size: 1.3em;
   margin-bottom: 0.6em;
+
   @media ${device.mobileL} {
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 300;
   }
   a {
     color: currentColor;
     text-decoration: none;
+  }
+`;
+const Social = styled.div`
+  @media ${device.mobileL} {
+    display: flex;
+    gap: 1rem;
   }
 `;

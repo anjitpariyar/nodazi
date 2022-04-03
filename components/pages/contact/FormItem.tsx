@@ -186,6 +186,23 @@ const Input = styled.input`
   color: ${({ theme }) => theme.white};
   box-sizing: border-box;
 `;
+const Label = styled.label<{ type }>`
+  margin: 0;
+  font-size: 1.1em;
+  max-width: 120px;
+  min-width: 120px;
+  width: 120px;
+  align-self: ${({ type }) => type === "textarea" && "flex-start"};
+  line-height: 1.6;
+  @media ${device.mobileL} {
+    width: ${({ type }) => type === "textarea" && "100%"};
+    max-width: ${({ type }) => type === "textarea" && "100%"};
+    margin-bottom: ${({ type }) => type === "textarea" && "1em"};
+    br {
+      display: none;
+    }
+  }
+`;
 const Item = styled.div<{ width; type }>`
   display: flex;
   justify-content: space-between;
@@ -264,21 +281,10 @@ const Item = styled.div<{ width; type }>`
       }
     }
   }
-`;
-const Label = styled.label<{ type }>`
-  margin: 0;
-  font-size: 1.1em;
-  max-width: 120px;
-  min-width: 120px;
-  width: 120px;
-  align-self: ${({ type }) => type === "textarea" && "flex-start"};
-  line-height: 1.6;
-  @media ${device.mobileL} {
-    width: ${({ type }) => type === "textarea" && "100%"};
-    max-width: ${({ type }) => type === "textarea" && "100%"};
-    margin-bottom: ${({ type }) => type === "textarea" && "1em"};
-    br {
-      display: none;
+  ${Label} {
+    @media ${device.mobileL} {
+      min-width: ${({ type }) => type === "checkbox" && "90px"};
+      width: ${({ type }) => type === "checkbox" && "90px"};
     }
   }
 `;
@@ -310,6 +316,9 @@ const Checkbox = styled.input`
     line-height: 1.7;
     cursor: pointer;
     user-select: none;
+    @media ${device.mobileL} {
+      font-size: 14px;
+    }
     &:before {
       content: "";
       position: absolute;
@@ -336,6 +345,9 @@ const CheckboxWrap = styled.div`
   &.error {
     & + ${Error} {
       display: block;
+      @media ${device.mobileL} {
+        top: 26px;
+      }
     }
     ${Checkbox} {
       & + label:before {

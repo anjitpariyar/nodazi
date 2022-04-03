@@ -30,19 +30,22 @@ export default function Form() {
   const onSubmit = (event: any) => {
     event.preventDefault();
     console.log(data);
-
-    setData({
-      ...data,
-      name: "",
-      companyName: "",
-      email: "",
-      contact: "",
-      requestField: "1",
-      expectedDate: "",
-      inquiry: "",
-      privacy: "",
-      agree: false,
-    });
+    if (!agree) {
+      console.log("error");
+    } else {
+      setData({
+        ...data,
+        name: "",
+        companyName: "",
+        email: "",
+        contact: "",
+        requestField: "1",
+        expectedDate: "",
+        inquiry: "",
+        privacy: "",
+        agree: false,
+      });
+    }
   };
   const {
     name,
@@ -155,6 +158,9 @@ const Grid = styled.div`
   @media ${device.tablet} {
     grid-template-columns: repeat(1, 1fr);
   }
+  @media ${device.mobileL} {
+    margin-bottom: 20px;
+  }
 `;
 const Div = styled.div`
   padding-right: 100px;
@@ -168,6 +174,7 @@ const Section = styled.div`
   border-bottom: 1px solid #fff;
   @media ${device.mobileL} {
     font-size: 16px;
+    padding-bottom: 40px;
   }
 `;
 const BtnCenter = styled.div`
