@@ -14,27 +14,26 @@ export default function Bottom() {
         </div>
         <div>
           <Title>CALL</Title>
+          <Title>CALL</Title>
           <Text>
-            <a href="tel:070-8807-1668">T. 070-8807-1668</a>
+            <span>T. </span>
+            <a href="tel:070-8807-1668">070-8807-1668</a>
           </Text>
           <Text>
-            {" "}
-            <a href="mailto:nodazidesign@naver.com">
-              {" "}
-              M. nodazidesign@naver.com
-            </a>
+            <span>M. </span>
+            <a href="mailto:nodazidesign@naver.com">nodazidesign@naver.com</a>
           </Text>
         </div>
 
         <div>
           <Title>SNS</Title>
           <Text>
-            <a href="ig" target="_blank" rel="noreferrer">
+            <a href="https://instagram.com/" target="_blank" rel="noreferrer">
               instagram
             </a>
           </Text>
           <Text>
-            <a href="http://" target="_blank" rel="noreferrer">
+            <a href="https://behance.net" target="_blank" rel="noreferrer">
               Behance
             </a>
           </Text>
