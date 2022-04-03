@@ -29,7 +29,7 @@ export default function Bottom() {
           <Title>SNS</Title>
           <Text>
             <a href="https://instagram.com/" target="_blank" rel="noreferrer">
-              instagram
+              Instagram
             </a>
           </Text>
           <Text>

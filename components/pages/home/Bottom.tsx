@@ -41,7 +41,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  instagram
+                  Instagram
                 </a>
               </Text>
               <Text>
