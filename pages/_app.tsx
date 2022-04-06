@@ -16,7 +16,6 @@ function App({ Component, pageProps }) {
         <link href="/image/fav.png" rel="icon" type="image/gif" sizes="16x16" />
         <meta property="og:title" content="NODAZI STUDIO" />
         <meta property="og:type" content="card" />
-        {/* <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" /> */}
         <meta property="og:image" content="/image/home_banner.png" />
         <meta name="theme-color" content="#000" />
       </Head>

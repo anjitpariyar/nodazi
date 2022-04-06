@@ -5,7 +5,7 @@ import Cube from "public/icons/Cube";
 import { device } from "styled/Breakpoint";
 
 export default function Details({ data }) {
-  // console.log(data.images[0].images);
+  let date = new Date(data._createdAt);
   return (
     <>
       <Section>
@@ -25,7 +25,7 @@ export default function Details({ data }) {
                 <span>CLIENT</span> {data.images[0].client}
               </Para>
               <Para>
-                <span>DATE</span> {data._createdAt}
+                <span>DATE</span> {date.getFullYear() + ". " + date.getMonth()}
               </Para>
             </div>
           </Div>
