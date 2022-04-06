@@ -11,9 +11,10 @@ export default function Card(data) {
       <CardWrap>
         <Link
           href={{
-            pathname: `/portfolio/${data?.images[0]?.title
-              ?.toLowerCase()
-              .replaceAll(" ", "_")}`,
+            pathname: `/portfolio/${data?.images[0]?.title?.replaceAll(
+              " ",
+              "_"
+            )}`,
             query: { id: data.id },
           }}
         >
