@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { Container, Padding } from "styled/Common.styled";
 import Layout from "components/layout/Layout";
 import styled from "styled-components";
@@ -10,23 +9,32 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import Head from "next/head";
 
 export default function Pid({ datas }) {
-  const router = useRouter();
-  const { pid } = router.query;
   // console.log(datas[0].portfolio);
   const data = datas[0].portfolio;
 
   return (
-    <Layout title={"NODAZI | Portfolio - " + pid}>
-      <Section>
-        <Container>
-          <Padding>
-            <Details data={data} />
-          </Padding>
-        </Container>
-      </Section>
-    </Layout>
+    <>
+      <Head>
+        <meta
+          property="og:image"
+          content={datas[0].portfolio.images[0].images[0].url}
+        />
+      </Head>
+      <Layout
+        title={datas[0].portfolio.images[0].title + " - NODAZI | Portfolio  "}
+      >
+        <Section>
+          <Container>
+            <Padding>
+              <Details data={data} />
+            </Padding>
+          </Container>
+        </Section>
+      </Layout>
+    </>
   );
 }
 
