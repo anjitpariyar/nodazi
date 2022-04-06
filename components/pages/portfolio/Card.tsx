@@ -8,8 +8,8 @@ export default function Card(data) {
   //
   const [link, setLink] = useState(null);
   useEffect(() => {
-    if (data) {
-      setLink(data?.images[0]?.title?.toLowerCase().replaceAll(" ", "_"));
+    if (data?.images[0]?.title) {
+      setLink(data?.images[0]?.title?.replaceAll(" ", "_").toLowerCase());
     }
   }, [data]);
   if (data) {
