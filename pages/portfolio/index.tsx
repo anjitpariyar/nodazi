@@ -52,6 +52,7 @@ const query = gql`
     allPortfolios {
       id
       images {
+        title
         images {
           url
           title

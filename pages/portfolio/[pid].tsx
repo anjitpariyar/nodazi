@@ -57,7 +57,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 export async function getServerSideProps(context) {
-  const pid = context.params.pid;
+  const pid = context.query.id;
   const client = new ApolloClient({
     link: authLink.concat(httpLink),
     cache: new InMemoryCache(),

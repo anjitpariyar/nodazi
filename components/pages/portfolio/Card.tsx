@@ -4,9 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Card(data) {
+  // slug with pid and title
+  //
   return (
     <CardWrap>
-      <Link href={`/portfolio/${data.id}`}>
+      <Link
+        href={{
+          pathname: `/portfolio/${data.images[0].title
+            .toLowerCase()
+            .replaceAll(" ", "_")}`,
+          query: { id: data.id },
+        }}
+      >
         <a>
           <ImageWrapper>
             <Image
