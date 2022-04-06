@@ -2,7 +2,6 @@
 import Layout from "components/layout/Layout";
 import styled from "styled-components";
 import { Container, Padding } from "styled/Common.styled";
-import { portData } from "utils/sample-data";
 import { Card } from "components/pages/portfolio";
 import { device } from "styled/Breakpoint";
 import {

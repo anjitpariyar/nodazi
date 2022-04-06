@@ -7,7 +7,8 @@ import image2 from "public/image/portfolio/Rectangle25.png";
 import image3 from "public/image/portfolio/Rectangle26.png";
 import { device } from "styled/Breakpoint";
 
-export default function Details() {
+export default function Details({ data }) {
+  console.log(data.images[0].images);
   return (
     <>
       <Section>
@@ -27,7 +28,7 @@ export default function Details() {
                 <span>CLIENT</span> 동아사이언스
               </Para>
               <Para>
-                <span>DATE</span> 2021. 10
+                <span>DATE</span> {data._createdAt}
               </Para>
             </div>
           </Div>
@@ -48,36 +49,20 @@ export default function Details() {
         </Flex>
       </Section>
       <Section>
-        <ImageWrapper>
-          <Image
-            src={image1}
-            layout="fill"
-            alt={"portfolio "}
-            blurDataURL={"/image/portfolio/Rectangle23.png"}
-            placeholder="blur"
-            objectFit="contain"
-          />
-        </ImageWrapper>
-        <ImageWrapper>
-          <Image
-            src={image2}
-            layout="fill"
-            alt={"portfolio "}
-            blurDataURL={"/image/portfolio/Rectangle23.png"}
-            placeholder="blur"
-            objectFit="contain"
-          />
-        </ImageWrapper>
-        <ImageWrapper>
-          <Image
-            src={image3}
-            layout="fill"
-            alt={"portfolio "}
-            blurDataURL={"/image/portfolio/Rectangle23.png"}
-            placeholder="blur"
-            objectFit="contain"
-          />
-        </ImageWrapper>
+        {data.images[0].images.map((data) => {
+          return (
+            <ImageWrapper key={data.id}>
+              <Image
+                src={data.url}
+                layout="fill"
+                alt={data.alt}
+                blurDataURL={data.url}
+                placeholder="blur"
+                objectFit="contain"
+              />
+            </ImageWrapper>
+          );
+        })}
       </Section>
     </>
   );

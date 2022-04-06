@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Card(data) {
-  console.log(data.images[0].images[0].url);
   return (
     <CardWrap>
       <Link href={`/portfolio/${data.id}`}>
