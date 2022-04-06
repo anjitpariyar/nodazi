@@ -29,7 +29,7 @@ export default function Form() {
   };
   const onSubmit = (event: any) => {
     event.preventDefault();
-    console.log(data);
+    // console.log(data);
     if (!agree) {
       console.log("error");
     } else {

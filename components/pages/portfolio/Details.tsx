@@ -2,20 +2,17 @@ import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
 import Cube from "public/icons/Cube";
-import image1 from "public/image/portfolio/Rectangle23.png";
-import image2 from "public/image/portfolio/Rectangle25.png";
-import image3 from "public/image/portfolio/Rectangle26.png";
 import { device } from "styled/Breakpoint";
 
 export default function Details({ data }) {
-  console.log(data.images[0].images);
+  // console.log(data.images[0].images);
   return (
     <>
       <Section>
         <Flex>
           <Div>
-            <Tag>현대자동차와 함께하는</Tag>
-            <Title>VISION DRIVE</Title>
+            <Tag>{data.images[0].tagline}</Tag>
+            <Title>{data.images[0].title}</Title>
             <Button title="Back to the portfolio">
               <Link href="/portfolio">
                 <a>
@@ -25,7 +22,7 @@ export default function Details({ data }) {
             </Button>
             <div>
               <Para>
-                <span>CLIENT</span> 동아사이언스
+                <span>CLIENT</span> {data.images[0].client}
               </Para>
               <Para>
                 <span>DATE</span> {data._createdAt}
@@ -33,7 +30,7 @@ export default function Details({ data }) {
             </div>
           </Div>
           <div>
-            <Para>
+            {/* <Para>
               2021 현대자동차와 함께하는 VISION DRIVE는 초등생을 대상으로
               진행하는 교육프로그램으로 아이들의 눈높이를 맞추어 흥미를 유발하는
               캐릭터를 디자인하여 프로그램북, 활동지, 활동카드, PPT, WEB에
@@ -44,7 +41,8 @@ export default function Details({ data }) {
               program for elementary school students and designed characters
               that arouse interest at the children&apos;s level and applied them
               to programbooks, activity cards, PPT, and WEB.
-            </Para>
+            </Para> */}
+            <Para>{data.images[0].description}</Para>
           </div>
         </Flex>
       </Section>
@@ -104,6 +102,7 @@ const Para = styled.p<{ light: boolean }>`
   margin-bottom: 1.5em;
   line-height: 1.6;
   font-weight: ${({ light }) => light && "300"};
+  white-space: pre-line;
   span {
     width: 116px;
     display: inline-block;

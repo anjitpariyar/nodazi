@@ -14,7 +14,7 @@ import { setContext } from "@apollo/client/link/context";
 export default function Pid({ datas }) {
   const router = useRouter();
   const { pid } = router.query;
-  console.log(datas[0].portfolio);
+  // console.log(datas[0].portfolio);
   const data = datas[0].portfolio;
 
   return (
@@ -61,8 +61,12 @@ export async function getServerSideProps(context) {
       portfolio(filter: { id: { eq: ${pid} } }) {
         id
         _createdAt
-        images {
-          images {
+        images{
+          tagline
+          title
+          description
+          client
+          images{
             url
             alt
             id
