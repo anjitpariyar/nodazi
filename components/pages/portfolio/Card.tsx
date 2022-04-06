@@ -6,31 +6,33 @@ import Link from "next/link";
 export default function Card(data) {
   // slug with pid and title
   //
-  return (
-    <CardWrap>
-      <Link
-        href={{
-          pathname: `/portfolio/${data.images[0].title
-            .toLowerCase()
-            .replaceAll(" ", "_")}`,
-          query: { id: data.id },
-        }}
-      >
-        <a>
-          <ImageWrapper>
-            <Image
-              src={data.images[0].images[0].url}
-              layout="fill"
-              alt={"portfolio "}
-              blurDataURL={data.images[0].images[0].url}
-              placeholder="blur"
-              objectFit="contain"
-            />
-          </ImageWrapper>
-        </a>
-      </Link>
-    </CardWrap>
-  );
+  if (data) {
+    return (
+      <CardWrap>
+        <Link
+          href={{
+            pathname: `/portfolio/${data.images[0].title
+              .toLowerCase()
+              .replaceAll(" ", "_")}`,
+            query: { id: data.id },
+          }}
+        >
+          <a>
+            <ImageWrapper>
+              <Image
+                src={data.images[0].images[0].url}
+                layout="fill"
+                alt={"portfolio "}
+                blurDataURL={data.images[0].images[0].url}
+                placeholder="blur"
+                objectFit="contain"
+              />
+            </ImageWrapper>
+          </a>
+        </Link>
+      </CardWrap>
+    );
+  } else return null;
 }
 
 const CardWrap = styled.div``;
