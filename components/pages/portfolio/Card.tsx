@@ -3,17 +3,18 @@ import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Card({ id, img }) {
+export default function Card(data) {
+  console.log(data.images[0].images[0].url);
   return (
     <CardWrap>
-      <Link href={`/portfolio/${id}`}>
+      <Link href={`/portfolio/${data.id}`}>
         <a>
           <ImageWrapper>
             <Image
-              src={img}
+              src={data.images[0].images[0].url}
               layout="fill"
               alt={"portfolio "}
-              blurDataURL={img}
+              blurDataURL={data.images[0].images[0].url}
               placeholder="blur"
               objectFit="contain"
             />

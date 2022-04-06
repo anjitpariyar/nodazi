@@ -12,21 +12,24 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-const IndexPage = ({ datas }) => (
-  <Layout title="NODAZI | Portfolio">
-    <Section>
-      <Container>
-        <Padding>
-          <Grid>
-            {portData.map((data, index) => {
-              return <Card {...data} key={index} />;
-            })}
-          </Grid>
-        </Padding>
-      </Container>
-    </Section>
-  </Layout>
-);
+const IndexPage = ({ datas }) => {
+  return (
+    <Layout title="NODAZI | Portfolio">
+      <Section>
+        <Container>
+          <Padding>
+            <Grid>
+              {/* id, images, images[0], url, title */}
+              {datas[0].allPortfolios.map((data, index) => {
+                return <Card {...data} key={index} />;
+              })}
+            </Grid>
+          </Padding>
+        </Container>
+      </Section>
+    </Layout>
+  );
+};
 
 export default IndexPage;
 
@@ -47,15 +50,12 @@ const Grid = styled.div`
 // graphql
 const query = gql`
   query {
-    cource {
+    allPortfolios {
       id
-      name
-      courseDetaild {
-        ... on CourseHeaderRecord {
-          smallTitle
-          bigTitle
-          buttonText
-          description
+      images {
+        images {
+          url
+          title
         }
       }
     }
@@ -77,20 +77,18 @@ const authLink = setContext((_, { headers }) => {
 });
 
 export async function getStaticProps() {
-  console.log(process.env.NEXT_PUBLIC_DATO_CMS_TOKEN);
   const client = new ApolloClient({
     link: authLink.concat(httpLink),
     cache: new InMemoryCache(),
   });
+
   const { data } = await client.query({
     query: query,
   });
 
-  console.log(data);
-
   return {
     props: {
-      datas: [],
+      datas: [data],
     },
   };
 }
