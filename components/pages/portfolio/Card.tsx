@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,15 +6,18 @@ import Link from "next/link";
 export default function Card(data) {
   // slug with pid and title
   //
+  const [link, setLink] = useState(null);
+  useEffect(() => {
+    if (data) {
+      setLink(data?.images[0]?.title?.toLowerCase().replaceAll(" ", "_"));
+    }
+  }, [data]);
   if (data) {
     return (
       <CardWrap>
         <Link
           href={{
-            pathname: `/portfolio/${data?.images[0]?.title?.replaceAll(
-              " ",
-              "_"
-            )}`,
+            pathname: `/portfolio/${link}`,
             query: { id: data.id },
           }}
         >
