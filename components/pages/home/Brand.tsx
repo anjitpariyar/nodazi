@@ -7,8 +7,19 @@ import { keyframes } from "styled-components";
 import Image from "next/image";
 import image1 from "public/image/Ellipse1.png";
 import { device } from "styled/Breakpoint";
+import { useSpring, animated, config } from 'react-spring'
+
 
 export default function Brand() {
+  const [styles, api] = useSpring(() => ({
+    from: { transform: "translateX(-100%)" },
+    to: { transform: "translateX(250%)" },
+    config: { duration: 4500, ...config.stiff	 },
+    loop: { reverse: true },
+  }));
+
+
+
   return (
     <Section>
       <Container>
@@ -20,7 +31,10 @@ export default function Brand() {
           알아채고 `}
             <span>표현하는 사람들</span>
             <Path>
-              <ImageWrapper>
+              <ImageWrapper
+                style={styles}
+                onMouseEnter={() => api({ config: { duration: 2000 } })}
+              >
                 <Image
                   src={image1}
                   layout="fill"
@@ -70,6 +84,7 @@ const Title = styled.h2`
   white-space: pre-line;
   line-height: 1.4;
   position: relative;
+  cursor: default;
   @media ${device.mobileL} {
     font-size: 28px;
     line-height: 40px;
@@ -96,7 +111,7 @@ const Path = styled.span`
   position: absolute;
   top: -40px;
   left: -10px;
-  width: 345px;
+  width: 300px;
   overflow: hidden;
   @media ${device.tablet} {
     left: 100px;
@@ -163,16 +178,17 @@ const OvalBr = styled.span`
   }
 `;
 
-const ImageWrapper = styled.div<{ speed: number }>`
+const ImageWrapper = styled(animated.div)<{ speed: number }>`
   position: relative;
   width: 140px;
   height: 140px;
-  transition: 0.3s linear;
-  animation: ${PatternAnimation} 8s linear 0s infinite;
-  animation-duration: ${({ speed }) => speed + "s"};
-  animation-play-state: play;
+  opacity: 95%;
+  /* transition: 0.3s linear; */
+  /* animation: ${PatternAnimation} 8s linear 0s infinite; */
+  /* animation-duration: ${({ speed }) => speed + "s"}; */
+  /* animation-play-state: play; */
+  /* animation-timing-function:ease-in-out; */
   @media ${device.mobileL} {
     height: 60px;
     width: 60px;
-  }
 `;

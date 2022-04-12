@@ -53,6 +53,7 @@ const FooterWrap = styled.footer`
   transform: translateX(calc(100vw - 180px));
   margin-top: -5em;
   padding-bottom: 73px;
+  fill: #c2d5ed;
   @media ${device.laptop} {
     margin-top: -5em;
   }
