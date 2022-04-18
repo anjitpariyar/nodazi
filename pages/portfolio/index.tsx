@@ -73,7 +73,7 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const client = new ApolloClient({
     link: authLink.concat(httpLink),
     cache: new InMemoryCache(),
