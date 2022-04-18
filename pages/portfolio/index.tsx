@@ -71,7 +71,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: "Bearer " + process.env.NEXT_PUBLIC_DATO_CMS_TOKEN,
+      authorization: "Bearer 8a9a9697258c1bf95c64073c13727f",
     },
   };
 });

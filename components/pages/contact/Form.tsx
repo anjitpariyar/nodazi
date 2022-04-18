@@ -69,8 +69,7 @@ oo는 이용자 혹은 법정 대리인의 요청에 의해 해지 또는 삭제
 2.정보보호마크인증위원회 (www.eprivacy.or.kr/02-580-0533~4)
 3.대검찰청 인터넷범죄수사센터 (http://icic.sppo.go.kr/02-3480-3600)
 4.경찰청 사이버테러대응센터 (www.ctrc.go.kr/02-392-0330)
-`
-
+`;
 
 export default function Form() {
   const [data, setData] = useState({
@@ -102,18 +101,27 @@ export default function Form() {
     if (!agree) {
       console.log("error");
     } else {
-      setData({
-        ...data,
-        name: "",
-        companyName: "",
-        email: "",
-        contact: "",
-        requestField: "1",
-        expectedDate: "",
-        inquiry: "",
-        agree: false,
-      });
+      console.log(data);
+
+      // setData({
+      //   ...data,
+      //   name: "",
+      //   companyName: "",
+      //   email: "",
+      //   contact: "",
+      //   requestField: "1",
+      //   expectedDate: "",
+      //   inquiry: "",
+      //   agree: false,
+      // });
     }
+    fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
   };
   const {
     name,
@@ -137,7 +145,6 @@ export default function Form() {
               value={name}
               onChange={onChange}
               name={"name"}
-              pattern="^[a-zA-Z\s\u3131-\uD79D]+$"
             />
             <FormItem
               label="회사명"
@@ -161,7 +168,6 @@ export default function Form() {
               value={contact}
               onChange={onChange}
               name="contact"
-              pattern="^[\d]{9,12}$"
             />
             <FormItem
               label="의뢰분야"

@@ -108,9 +108,10 @@ export default function FormItem({
                   onChange={(value) => onChange(value, name)}
                   minDate={today}
                   required
-                  dayPlaceholder="dd"
-                  monthPlaceholder="mm"
-                  yearPlaceholder="yy"
+                  dayPlaceholder={'DD'}
+                  monthPlaceholder={`MM`}
+                  yearPlaceholder={`YYYY`}
+                  defaultValue={new Date()}
                   format="y-MM-dd"
                 />
               </Item>
@@ -129,6 +130,7 @@ export default function FormItem({
                   name={name}
                   value={value}
                   onChange={onChange}
+                  readOnly={name === "privacy"}
                   required
                 />
               </Item>
