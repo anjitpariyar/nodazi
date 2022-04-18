@@ -19,11 +19,11 @@ export default function Banner() {
           unoptimized={true}
         />
         <TextWrap>
-          <Marquee speed={60}>
+          {/* <Marquee speed={60} play={false} pauseOnHover={true} pauseOnClick={true}> */}
+            <TextComp isGray={true}/>
             <TextComp />
-            <TextComp />
-            <TextComp />
-          </Marquee>
+            <TextComp isGray={true}/>
+          {/* </Marquee> */}
         </TextWrap>
       </ImageWrapper>
     </Section>
@@ -46,9 +46,14 @@ const TextWrap = styled.div`
   bottom: 71px;
   left: 0;
   width: 100%;
-  .marquee-container {
+  cursor: default;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  /* .marquee-container {
     overflow-y: hidden;
-  }
+  } */
   @media ${device.mobileL} {
     display: none;
   }
@@ -74,8 +79,14 @@ const Text = styled.h2`
   margin: 0;
   word-spacing: 5px;
   margin: 0 45px;
+  word-break: keep-all;
+white-space: nowrap;
 `;
 
-const TextComp = () => {
-  return <Text>BRANDING * EDITORIAL * PACKAGING * DIGITAL </Text>;
+const TextComp = ({ isGray }: { isGray?: boolean }) => {
+  return (
+    <Text style={{ color: isGray ? "gray" : "white" }}>
+      BRANDING * EDITORIAL * PACKAGING * DIGITAL{" "}
+    </Text>
+  );
 };

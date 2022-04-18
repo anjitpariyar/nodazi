@@ -16,7 +16,11 @@ function App({ Component, pageProps }) {
         <link href="/image/fav.png" rel="icon" type="image/gif" sizes="16x16" />
         <meta property="og:title" content="NODAZI STUDIO" />
         <meta property="og:type" content="card" />
-        <meta property="og:image" content="/image/home_banner.png" />
+        <meta
+          property="og:description"
+          content="새로운 발견을 통해 숨어있는 브랜드의 가치를 발견하고 알아채는 사람들"
+        />
+        <meta property="og:image" content="/image/thumb.png" />
         <meta name="theme-color" content="#000" />
       </Head>
       <Global />
