@@ -66,7 +66,7 @@ export default function Header() {
           </StarWrap>
           <Item>
             <a
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/nodazi_studio/"
               target="_blank"
               rel="noreferrer"
             >
@@ -74,7 +74,7 @@ export default function Header() {
             </a>
           </Item>
           <Item>
-            <a href="https://www.behance.net/" target="_blank" rel="noreferrer">
+            <a href="https://www.behance.net/nodazidesign" target="_blank" rel="noreferrer">
               BEHANCE
             </a>
           </Item>

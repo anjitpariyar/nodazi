@@ -28,12 +28,20 @@ export default function Bottom() {
           <Title>SNS</Title>
           <Social>
             <Text>
-              <a href="https://instagram.com/" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.instagram.com/nodazi_studio/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Instagram
               </a>
             </Text>
             <Text>
-              <a href="https://behance.net" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.behance.net/nodazidesign"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Behance
               </a>
             </Text>

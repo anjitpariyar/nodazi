@@ -5,14 +5,15 @@ import Cube from "public/icons/Cube";
 import { device } from "styled/Breakpoint";
 
 export default function Details({ data }) {
-  let date = new Date(data._createdAt);
+  console.log(data)
+  let date = new Date(data.date);
   return (
     <>
       <Section>
         <Flex>
           <Div>
-            <Tag>{data.images[0].tagline}</Tag>
-            <Title>{data.images[0].title}</Title>
+            <Tag>{data.subTitle}</Tag>
+            <Title>{data.title}</Title>
             <Button title="Back to the portfolio">
               <Link href="/portfolio">
                 <a>
@@ -22,7 +23,7 @@ export default function Details({ data }) {
             </Button>
             <div>
               <Para>
-                <span>CLIENT</span> {data.images[0].client}
+                <span>CLIENT</span> {data.client}
               </Para>
               <Para>
                 <span>DATE</span> {date.getFullYear() + ". " + date.getMonth()}
@@ -30,24 +31,12 @@ export default function Details({ data }) {
             </div>
           </Div>
           <div>
-            {/* <Para>
-              2021 현대자동차와 함께하는 VISION DRIVE는 초등생을 대상으로
-              진행하는 교육프로그램으로 아이들의 눈높이를 맞추어 흥미를 유발하는
-              캐릭터를 디자인하여 프로그램북, 활동지, 활동카드, PPT, WEB에
-              적용하였습니다.
-            </Para>
-            <Para light={true}>
-              VISION DRIVE with 2021 Hyundai Motor Company is an educational
-              program for elementary school students and designed characters
-              that arouse interest at the children&apos;s level and applied them
-              to programbooks, activity cards, PPT, and WEB.
-            </Para> */}
-            <Para>{data.images[0].description}</Para>
+            <Para>{data.content}</Para>
           </div>
         </Flex>
       </Section>
       <Section>
-        {data.images[0].images.map((data) => {
+        {data.additionalImages.map((data) => {
           return (
             <ImageWrapper key={data.id}>
               <Image
