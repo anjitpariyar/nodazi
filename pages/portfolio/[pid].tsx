@@ -11,25 +11,20 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import Head from "next/head";
 
-export default function Pid({ datas }) {
+export default function Pid({ data }) {
   // console.log(datas[0].portfolio);
-  const data = datas[0].portfolio;
+  const portfolio = data.portfolio;
 
   return (
     <>
       <Head>
-        <meta
-          property="og:image"
-          content={datas[0].portfolio.images[0].images[0].url}
-        />
+        <meta property="og:image" content={portfolio.representativeImg.url} />
       </Head>
-      <Layout
-        title={datas[0].portfolio.images[0].title + " - NODAZI | Portfolio  "}
-      >
+      <Layout title={portfolio.title + " - NODAZI | Portfolio  "}>
         <Section>
           <Container>
             <Padding>
-              <Details data={data} />
+              <Details data={portfolio} />
             </Padding>
           </Container>
         </Section>
@@ -51,43 +46,37 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: "Bearer " + process.env.NEXT_PUBLIC_DATO_CMS_TOKEN,
+      authorization: "Bearer 5e421e4a19acdcd9a727ce49fad4f7",
     },
   };
 });
 
+const query = gql`query Portfolio {
+    portfolio(filter: {id: {eq: "3169700"}}) {
+      id
+      date
+      representativeImg {
+        url
+      }
+      additionalImages{
+        url
+      }
+      content
+      subTitle
+      client
+      title
+    }
+  }`;
 export async function getServerSideProps(context) {
-  const pid = context.query.id;
+  console.log(context);
+  const pid = context.query.pid;
   const client = new ApolloClient({
     link: authLink.concat(httpLink),
     cache: new InMemoryCache(),
   });
-
-  const { data } = await client.query({
-    query: gql`
-    query {
-      portfolio(filter: { id: { eq: ${pid} } }) {
-        id
-        _createdAt
-        images{
-          tagline
-          title
-          description
-          client
-          images{
-            url
-            alt
-            id
-          }
-        }
-      }
-    }
-  `,
-  });
+  const { data } = await client.query({ query });
 
   return {
-    props: {
-      datas: [data],
-    },
+    props: { data },
   };
 }

@@ -8,8 +8,8 @@ export default function Card(data) {
   //
   const [link, setLink] = useState(null);
   useEffect(() => {
-    if (data?.images[0]?.title) {
-      setLink(data?.images[0]?.title?.replaceAll(" ", "_").toLowerCase());
+    if (data?.id) {
+      setLink(data?.id);
     }
   }, [data]);
   if (data) {
@@ -18,16 +18,15 @@ export default function Card(data) {
         <Link
           href={{
             pathname: `/portfolio/${link}`,
-            query: { id: data.id },
           }}
         >
           <a>
             <ImageWrapper>
               <Image
-                src={data.images[0].images[0].url}
+                src={data.representativeImg.url}
                 layout="fill"
                 alt={"portfolio "}
-                blurDataURL={data.images[0].images[0].url}
+                blurDataURL={data.representativeImg.url}
                 placeholder="blur"
                 objectFit="contain"
               />

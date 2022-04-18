@@ -11,18 +11,18 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-const IndexPage = ({ datas }) => {
+const IndexPage = ({ data }) => {
   return (
     <Layout title="NODAZI | Portfolio">
       <Section>
         <Container>
           <Padding>
-            <Grid>
+          <Grid>
               {/* id, images, images[0], url, title */}
-              {datas[0].allPortfolios.map((data, index) => {
+              {data.allPortfolios.map((data, index) => {
                 return <Card {...data} key={index} />;
               })}
-            </Grid>
+            </Grid> 
           </Padding>
         </Container>
       </Section>
@@ -48,15 +48,12 @@ const Grid = styled.div`
 
 // graphql
 const query = gql`
-  query {
-    allPortfolios {
+  query AllPortfolios {
+    allPortfolios(filter: { isPublished: { eq: true } }) {
       id
-      images {
-        title
-        images {
-          url
-          title
-        }
+      title
+      representativeImg {
+        url
       }
     }
   }
@@ -71,7 +68,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: "Bearer 8a9a9697258c1bf95c64073c13727f",
+      authorization: "Bearer 5e421e4a19acdcd9a727ce49fad4f7",
     },
   };
 });
@@ -87,8 +84,6 @@ export async function getStaticProps() {
   });
 
   return {
-    props: {
-      datas: [data],
-    },
+    props: { data },
   };
 }
