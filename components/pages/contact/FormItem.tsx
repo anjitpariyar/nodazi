@@ -33,7 +33,7 @@ export default function FormItem({
     const valid = re.test(event?.target.value);
     event.target.parentElement.classList.toggle("error", !valid);
   };
-  const todayy = new Date();
+  const today = new Date();
   useEffect(() => {
     [
       ...document.querySelectorAll(
@@ -63,7 +63,7 @@ export default function FormItem({
                   pattern={pattern}
                 />
               </Item>
-              <Error>Enter a valid {label}</Error>
+              <Error>[{label}]정확한 값을 입력해주세요.</Error>
             </Wrapper>
           ),
           select: (
@@ -106,7 +106,7 @@ export default function FormItem({
                   value={value}
                   name={name}
                   onChange={(value) => onChange(value, name)}
-                  minDate={todayy}
+                  minDate={today}
                   required
                   dayPlaceholder="dd"
                   monthPlaceholder="mm"

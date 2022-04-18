@@ -14,7 +14,7 @@ export default function Brand() {
   const [styles, api] = useSpring(() => ({
     from: { transform: "translateX(-100%)" },
     to: { transform: "translateX(250%)" },
-    config: { duration: 4500, ...config.stiff	 },
+    config: { duration: 4500, mass: 1, tension: 170, friction: 200 },
     loop: { reverse: true },
   }));
 
