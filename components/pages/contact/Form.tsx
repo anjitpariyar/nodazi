@@ -2,6 +2,8 @@ import styled from "styled-components";
 import FormItem from "./FormItem";
 import { device } from "styled/Breakpoint";
 import { useState } from "react";
+import Image from "next/image";
+import twinkle from "public/image/twinkle.svg";
 
 const agreement = `
 '노다지스튜디오'는 (이하 '회사'는) 고객님의 개인정보를 중요시하며, "정보통신망 이용촉진 및 정보보호"에 관한 법률을 준수하고 있습니다.
@@ -82,6 +84,7 @@ export default function Form() {
     inquiry: "",
     agree: false,
   });
+  const [isSubmit, setIsubmit] = useState(false);
   const onChange = (event: any) => {
     // console.log(name);
     if (event.target.type === "checkbox") {
@@ -122,6 +125,7 @@ export default function Form() {
       },
       body: JSON.stringify(data),
     });
+    setIsubmit(true);
   };
   const {
     name,
@@ -223,6 +227,15 @@ export default function Form() {
           <Button>프로젝트 의뢰하기</Button>
         </BtnCenter>
       </form>
+      {isSubmit &&
+        <BtnCenter>
+        <Image
+            src={twinkle}
+        />
+          <Text>전송 완료하였습니다!</Text>
+        </BtnCenter>
+
+      }
     </Section>
   );
 }
@@ -278,5 +291,24 @@ const Button = styled.button`
   }
   @media ${device.mobileL} {
     font-size: 16px;
+  }
+`;
+
+const Text = styled.p`
+  font-size: 1em;
+  white-space: pre;
+  line-height: 1.8;
+  position: relative;
+  margin: 10px;
+  font-weight: 300;
+  @media ${device.laptop} {
+    white-space: normal;
+  }
+  @media ${device.mobileL} {
+    font-size: 18px;
+  }
+
+  b {
+    font-weight: 600;
   }
 `;

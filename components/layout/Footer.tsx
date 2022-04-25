@@ -26,7 +26,6 @@ export default function Footer() {
           {pathname === "/portfolio/[pid]" && (
             <Button onClick={scrollTop}>
               <span>
-                <span>TOP </span>
                 <ArrowUp />
               </span>
 
@@ -42,6 +41,8 @@ export default function Footer() {
 }
 
 const FooterWrap = styled.footer`
+  position: fixed;
+  bottom: 0px;
   /* position: absolute;
   right: 43px;
   bottom: 50px;
@@ -54,12 +55,13 @@ const FooterWrap = styled.footer`
   margin-top: -5em;
   padding-bottom: 73px;
   fill: #c2d5ed;
+  
   @media ${device.laptop} {
     margin-top: -5em;
-  }
+  };
   @media ${device.mobileL} {
-    display: none;
-  }
+     display: none;
+  };
   a {
     display: block;
     svg circle {
@@ -68,6 +70,9 @@ const FooterWrap = styled.footer`
     &:hover {
       svg circle {
         fill: #c2d5ed;
+      }
+      svg g:last-child path{
+        fill: #002b60;
       }
     }
   }
@@ -87,7 +92,7 @@ const Button = styled.button`
   background-color: transparent;
   color: ${({ theme }) => theme.grey};
   font-weight: 700;
-  width: 110px;
+  width: 100px;
   height: 52px;
   position: relative;
   @media ${device.tablet} {
@@ -117,7 +122,7 @@ const OvalBr = styled.span`
   top: 0;
   z-index: 1;
   svg {
-    height: 52px;
+    height: 48px;
     width: auto;
     stroke-dashoffset: 2170;
     path {

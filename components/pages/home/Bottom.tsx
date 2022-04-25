@@ -101,7 +101,7 @@ const Text = styled.p`
   margin-top: 0;
   font-size: 1em;
   margin-bottom: 0.6em;
-  font-weight: 300;
+  font-weight: 100;
 
   @media ${device.mobileL} {
     font-size: 13px;

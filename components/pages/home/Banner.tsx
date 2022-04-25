@@ -21,7 +21,9 @@ export default function Banner() {
         <TextWrap>
           {/* <Marquee speed={60} play={false} pauseOnHover={true} pauseOnClick={true}> */}
             <TextComp isGray={true}/>
-            <TextComp />
+            <TextComp isGray={true}/>
+            <TextComp isGray={true}/>
+            <TextComp isGray={true}/>
             <TextComp isGray={true}/>
           {/* </Marquee> */}
         </TextWrap>
@@ -75,7 +77,7 @@ const TextWrap = styled.div`
 `;
 const Text = styled.h2`
   font-weight: 300;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   margin: 0;
   word-spacing: 5px;
   margin: 0 45px;

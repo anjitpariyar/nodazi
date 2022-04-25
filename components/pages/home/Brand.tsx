@@ -12,8 +12,8 @@ import { useSpring, animated, config } from 'react-spring'
 
 export default function Brand() {
   const [styles, api] = useSpring(() => ({
-    from: { transform: "translateX(-100%)" },
-    to: { transform: "translateX(250%)" },
+    from: { transform: "translateX(-100%) rotate(0deg)" },
+    to: { transform: "translateX(250%) rotate(360deg)" },
     config: { duration: 4500, mass: 1, tension: 170, friction: 200 },
     loop: { reverse: true },
   }));
@@ -91,7 +91,7 @@ const Title = styled.h2`
     width: 100%;
   }
   span {
-    transition: 1s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+    transition: 0.6s cubic-bezier(0.55, 0.06, 0.68, 0.19);
     transition-delay: 0.5s;
     @media ${device.tablet} {
       color: ${({ theme }) => theme.white};
@@ -178,11 +178,12 @@ const OvalBr = styled.span`
   }
 `;
 
+
 const ImageWrapper = styled(animated.div)<{ speed: number }>`
   position: relative;
   width: 140px;
   height: 140px;
-  opacity: 95%;
+  opacity: 1;
   /* transition: 0.3s linear; */
   /* animation: ${PatternAnimation} 8s linear 0s infinite; */
   /* animation-duration: ${({ speed }) => speed + "s"}; */
@@ -192,3 +193,4 @@ const ImageWrapper = styled(animated.div)<{ speed: number }>`
     height: 60px;
     width: 60px;
 `;
+

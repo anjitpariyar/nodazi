@@ -193,7 +193,7 @@ const ImageWrapper = styled.div`
   width: 270.19px;
   height: 200px;
   z-index: 0;
-  animation: ${Float} 5s linear 0s infinite;
+  animation: ${Float} 4s linear 0s infinite;
   @media ${device.mobileL} {
     height: 100px;
     width: 150px;
@@ -221,7 +221,7 @@ const ImageWrapper2 = styled(ImageWrapper)`
   width: 488.55px;
   height: 131.88px;
   animation-delay: 0.3s;
-  animation-duration: 6s;
+  animation-duration: 5s;
   @media ${device.mobileL} {
     width: 225px;
     height: 90px;
