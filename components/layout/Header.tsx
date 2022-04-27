@@ -30,6 +30,17 @@ export default function Header() {
     });
   };
 
+  const NavHome = ({ isMobile }: { isMobile?: boolean }) => {
+    return (       
+      <Item active={pathname === "/"} style={{ display : isMobile? "none" : "block" }}>
+      <Link href="/">
+        <a>HOME</a>
+      </Link>
+    </Item>
+    );
+  };
+
+
   useEffect(() => {
     document.querySelector("html").style.overflow = "auto";
   }, []);
@@ -38,6 +49,11 @@ export default function Header() {
     <HeaderWrap>
       <Container>
         <Nav ref={SideMenu}>
+           <ItemHome active={pathname === "/"}>
+            <Link href="/">
+              <a>HOME</a>
+            </Link>
+          </ItemHome>
           <Item active={pathname === "/about"}>
             <Link href="/about">
               <a>ABOUT</a>
@@ -92,6 +108,7 @@ export default function Header() {
 }
 
 const HeaderWrap = styled.header`
+  background:#000;
   font-size: 20px;
   padding: 1em 0;
   font-weight: 500;
@@ -166,6 +183,10 @@ const StarWrap = styled.div`
     @media ${device.tablet} {
       display: none;
     }
+  };
+  &:hover {
+  svg g path{
+    fill: #5A875A ;
   }
 `;
 
@@ -183,5 +204,21 @@ const Hamburger = styled.div<{ cross }>`
   svg {
     height: 33px;
     width: auto;
+  }
+`;
+
+
+const ItemHome = styled.li<{ active }>`
+  display: none;
+  @media ${device.tablet} {
+    display: inline-block;
+  }
+  a {
+    color: ${({ theme, active }) =>
+      active ? theme.secondary : "currentColor"};
+    text-decoration: none;
+    &:hover {
+      color: ${({ theme }) => theme.secondary};
+    }
   }
 `;

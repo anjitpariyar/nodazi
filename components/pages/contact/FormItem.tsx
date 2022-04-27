@@ -188,6 +188,11 @@ const Input = styled.input`
   line-height: 20px;
   color: ${({ theme }) => theme.white};
   box-sizing: border-box;
+  &:-webkit-autofill {
+     transition: background-color 5000s;
+    -webkit-text-fill-color: #fff !important;
+  };
+
 `;
 const Label = styled.label<{ type }>`
   margin: 0;
@@ -293,8 +298,12 @@ const Item = styled.div<{ width; type }>`
 `;
 
 const Select = styled(Input).attrs({ as: "select" })`
-  background-color: ${({ theme }) => theme.black};
-  border: 1px solid ${({ theme }) => theme.white};
+  // background-color: ${({ theme }) => theme.black};
+  // border: 1px solid ${({ theme }) => theme.white};
+  background: url("/image/selectDown.svg") no-repeat;
+  background-position: calc(100% - 0.75rem) center;
+  border-radius: unset;
+  appearance: none !important;
   padding: 0px 5px;
 `;
 const Textarea = styled(Input).attrs({ as: "textarea" })`
@@ -331,7 +340,7 @@ const Checkbox = styled.input`
       height: 20px;
       border: nones;
       background: ${({ theme }) => theme.white};
-      transition: contentx 0.3s linear;
+      transition: content 0.3s linear;
       font-size: 1.5em;
       display: flex;
       align-items: center;
@@ -339,7 +348,7 @@ const Checkbox = styled.input`
     }
   }
   &:checked + label:before {
-    content: "✅";
+    background-image: url(/image/check.svg);
     background-color: transparent;
   }
 `;
