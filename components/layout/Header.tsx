@@ -183,6 +183,10 @@ const StarWrap = styled.div`
     @media ${device.tablet} {
       display: none;
     }
+  };
+  &:hover {
+  svg g path{
+    fill: #5A875A ;
   }
 `;
 
